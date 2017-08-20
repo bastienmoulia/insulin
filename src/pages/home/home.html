@@ -24,10 +24,17 @@
   <ion-item>
     <ion-label floating>Blood glucose ({{ bloodGlucoseService.unit }})</ion-label>
     <ion-input type="number" clearInput [(ngModel)]="glucose" (change)="calcul()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
+   
   </ion-item>
-  <ion-card *ngIf="insulinUnit" color="primary">
-    <ion-card-header>
+  <div padding class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
+    The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+  </div>
+  <ion-card *ngIf="insulinUnit || insulinUnit === 0" color="primary">
+    <ion-card-header *ngIf="insulinUnit !== 0">
       Insulin to do: <b>{{ insulinUnit | insulin}}</b> units
+    </ion-card-header>
+    <ion-card-header *ngIf="insulinUnit === 0">
+      No need of insulin
     </ion-card-header>
   </ion-card>
 </ion-content>

@@ -22,7 +22,7 @@ export class HomePage {
         let glucoseDelta = glucoseInMgdl - this.bloodGlucoseService.glucoseTarget;
         this.insulinUnit = glucoseDelta / this.physiologicalDataService.hypoPower;
       } else {
-        this.insulinUnit = null;
+        this.insulinUnit = 0;
       }
     } else {
       this.insulinUnit = null;
