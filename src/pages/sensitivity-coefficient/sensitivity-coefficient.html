@@ -7,11 +7,11 @@
 <ion-content>
   <ion-item>
     <ion-label>Weight (kg)</ion-label>
-    <ion-input type="number" [(ngModel)]="weight" (change)="calculK()"></ion-input>
+    <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>1 Unit of Insulin reduce your glucose by how many ({{ bloodGlucoseService.unit }})</ion-label>
-    <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()"></ion-input>
+    <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
   </ion-item>
   <ion-card *ngIf="k">
     <ion-card-header>

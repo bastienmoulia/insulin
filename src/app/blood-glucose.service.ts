@@ -6,26 +6,60 @@ type BloodGlucoseUnit = "mg/dL" | "g/L" | "mmol/L";
 @Injectable()
 export class BloodGlucoseService {
   unit: BloodGlucoseUnit;
-  units: BloodGlucoseUnit[];
+  units: {
+    value: BloodGlucoseUnit,
+    step: number,
+    min: number,
+    max: number
+  }[];
   glucoseTarget: number;
+  step: number;
+  min: number;
+  max: number;
 
   constructor(private storage: Storage) {
     this.unit = 'mg/dL';
-    this.units = ['mg/dL', 'g/L', 'mmol/L'];
+    this.units = [
+      {
+        value: 'mg/dL',
+        step: 1,
+        min: 10,
+        max: 1000
+      }, {
+        value: 'g/L',
+        step: 0.01,
+        min: 0.1,
+        max: 10
+      }, {
+        value: 'mmol/L',
+        step: 0.1,
+        min: 1,
+        max: 100
+      }
+    ];
     this.glucoseTarget = 120;
     this.storage.get('bloodGlucoseUnit').then((unitFromStorage: BloodGlucoseUnit) => {
       console.log('Your bloodGlucoseUnit is', unitFromStorage);
-      if (this.units.indexOf(unitFromStorage) === -1) {
+      if (this.units.findIndex((unit) => unit.value === unitFromStorage) === -1) {
         this.saveUnit();
       } else {
         this.unit = unitFromStorage;
       }
+      this.selectUnitInputParameters();
     });
+  }
+
+  selectUnitInputParameters() {
+    let unit = this.units.find((unit) => unit.value === this.unit);
+    this.step = unit.step;
+    this.min = unit.min;
+    this.max = unit.max;
   }
 
   saveUnit() {
     console.log('Save bloodGlucoseUnit: ', this.unit);
     this.storage.set('bloodGlucoseUnit', this.unit);
+    this.selectUnitInputParameters()
   }
 
   convertFromMgdl(value: number) {

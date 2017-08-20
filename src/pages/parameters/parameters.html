@@ -12,11 +12,11 @@
     <ion-card-content>
       <ion-item>
         <ion-label floating>Weight (kg)</ion-label>
-        <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" (change)="physiologicalDataService.saveWeight()" required></ion-input>
+        <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" (change)="physiologicalDataService.saveWeight()" required min="1" max="200"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Insulin sensitivity coefficient</ion-label>
-        <ion-input type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01"></ion-input>
+        <ion-input type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01" min="0.01" max="10"></ion-input>
       </ion-item>
       <button ion-button block (click)="goToSensitivityCoefficientPage()">Help me calculate this coefficient</button>
     </ion-card-content>
@@ -27,8 +27,8 @@
     </ion-card-header>
     <ion-card-content>
       <ion-segment [(ngModel)]="bloodGlucoseService.unit" color="primary" (ionChange)="bloodGlucoseService.saveUnit()">
-        <ion-segment-button value="{{ unit }}" *ngFor="let unit of bloodGlucoseService.units">
-          {{ unit }}
+        <ion-segment-button value="{{ unit.value }}" *ngFor="let unit of bloodGlucoseService.units">
+          {{ unit.value }}
         </ion-segment-button>
       </ion-segment>
     </ion-card-content>
