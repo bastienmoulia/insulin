@@ -11,13 +11,15 @@ import { ParametersPage } from '../pages/parameters/parameters';
 import { SensitivityCoefficientPage } from '../pages/sensitivity-coefficient/sensitivity-coefficient';
 import { BloodGlucoseService } from './blood-glucose.service';
 import { PhysiologicalDataService } from './physiological-data.service';
+import { InsulinUnitPipe } from './insulin-unit.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ParametersPage,
-    SensitivityCoefficientPage
+    SensitivityCoefficientPage,
+    InsulinUnitPipe
   ],
   imports: [
     BrowserModule,

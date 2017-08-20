@@ -27,7 +27,7 @@
   </ion-item>
   <ion-card *ngIf="insulinUnit" color="primary">
     <ion-card-header>
-      Insulin to do: <b>{{ insulinUnit | number:'1.0-1'}}</b> units
+      Insulin to do: <b>{{ insulinUnit | insulin}}</b> units
     </ion-card-header>
   </ion-card>
 </ion-content>
