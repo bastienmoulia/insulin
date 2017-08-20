@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Insulin
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToParametersPage()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Blood glucose ({{ bloodGlucoseService.unit }})</ion-label>
+    <ion-input type="number" clearInput [(ngModel)]="glucose" (change)="calcul()" autofocus></ion-input>
+  </ion-item>
+  <ion-chip *ngIf="insulinUnit" color="primary">
+    <ion-label>Insulin: {{ insulinUnit | number:'1.0-1'}} unit</ion-label>
+  </ion-chip>
+</ion-content>

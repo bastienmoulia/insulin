@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Parameters</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          Physiological data
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+              <ion-label floating>Weight (kg)</ion-label>
+              <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Insulin sensitivity coefficient K</ion-label>
+              <ion-input type="number" [(ngModel)]="physiologicalDataService.k" required></ion-input>
+            </ion-item>
+            <button ion-button block>Help me calculate this coefficient</button>
+        </ion-card-content>
+      </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Blood glucose units
+    </ion-card-header>
+    <ion-card-content>
+      <ion-segment [(ngModel)]="bloodGlucoseService.unit" color="primary" (ionChange)="bloodGlucoseService.saveUnit()">
+        <ion-segment-button value="{{ unit }}" *ngFor="let unit of bloodGlucoseService.units">
+          {{ unit }}
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
