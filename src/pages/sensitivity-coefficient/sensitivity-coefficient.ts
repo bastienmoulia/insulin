@@ -18,7 +18,7 @@ export class SensitivityCoefficientPage {
 
   calculK() {
     if (this.glucoseReduction && this.weight) {
-      this.k = Math.round(0.35 * 60 / this.weight * 100 / this.glucoseReduction * 100) / 100;
+      this.k = Math.round(0.35 * 60 / this.weight * 100 / this.bloodGlucoseService.convertToMgdl(this.glucoseReduction) * 100) / 100;
     } else {
       this.k = null;
     }

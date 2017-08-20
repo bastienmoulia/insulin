@@ -28,16 +28,18 @@ export class BloodGlucoseService {
     this.storage.set('bloodGlucoseUnit', this.unit);
   }
 
-  convert(value: number, from?: BloodGlucoseUnit, to?: BloodGlucoseUnit): number {
+  convertFromMgdl(value: number) {
+    return this.convert(value, 'mg/dL', this.unit);
+  }
+
+  convertToMgdl(value: number) {
+    return this.convert(value, this.unit, 'mg/dL');
+  }
+
+  convert(value: number, from: BloodGlucoseUnit, to: BloodGlucoseUnit): number {
     if (from === to) {
       return value;
     } else {
-      if (!from) {
-        from = 'mg/dL';
-      }
-      if (!to) {
-        to = this.unit;
-      }
       switch(from) {
         case('g/L'):
           value *= 100;

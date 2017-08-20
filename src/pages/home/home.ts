@@ -17,8 +17,9 @@ export class HomePage {
 
   calcul() {
     if (this.physiologicalDataService.hypoPower && this.glucose) {
-      if (this.glucose > this.bloodGlucoseService.glucoseTarget) {
-        let glucoseDelta = this.glucose - this.bloodGlucoseService.glucoseTarget;
+      let glucoseInMgdl = this.bloodGlucoseService.convertToMgdl(this.glucose);
+      if (glucoseInMgdl > this.bloodGlucoseService.glucoseTarget) {
+        let glucoseDelta = glucoseInMgdl - this.bloodGlucoseService.glucoseTarget;
         this.insulinUnit = glucoseDelta / this.physiologicalDataService.hypoPower;
       } else {
         this.insulinUnit = null;
