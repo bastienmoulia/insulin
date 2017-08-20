@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Insulin",
+  "short_name": "Insulin",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

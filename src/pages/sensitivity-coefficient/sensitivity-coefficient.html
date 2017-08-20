@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Insulin sensitivity coefficient</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Weight (kg)</ion-label>
+    <ion-input type="number" [(ngModel)]="weight" (change)="calculK()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>1 Unit of Insulin reduce your glucose by how many ({{ bloodGlucoseService.unit }})</ion-label>
+    <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()"></ion-input>
+  </ion-item>
+  <ion-card *ngIf="k">
+    <ion-card-header>
+        Your insulin sensitivity coefficient is <b>{{ k }}</b>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button block (click)="saveK()">Use this coefficient</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

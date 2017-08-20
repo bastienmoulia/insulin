@@ -12,11 +12,14 @@
 </ion-header>
 
 <ion-content padding>
+  <button *ngIf="!physiologicalDataService.hypoPower" ion-button block color="danger" (click)="goToParametersPage()">Please enter your physiological data in the parameters</button>
   <ion-item>
     <ion-label floating>Blood glucose ({{ bloodGlucoseService.unit }})</ion-label>
     <ion-input type="number" clearInput [(ngModel)]="glucose" (change)="calcul()" autofocus></ion-input>
   </ion-item>
-  <ion-chip *ngIf="insulinUnit" color="primary">
-    <ion-label>Insulin: {{ insulinUnit | number:'1.0-1'}} unit</ion-label>
-  </ion-chip>
+  <ion-card *ngIf="insulinUnit" color="primary">
+    <ion-card-header>
+      Insulin to do: <b>{{ insulinUnit | number:'1.0-1'}}</b> units
+    </ion-card-header>
+  </ion-card>
 </ion-content>

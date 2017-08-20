@@ -5,22 +5,22 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-card-header>
-          Physiological data
-        </ion-card-header>
-        <ion-card-content>
-            <ion-item>
-              <ion-label floating>Weight (kg)</ion-label>
-              <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>Insulin sensitivity coefficient K</ion-label>
-              <ion-input type="number" [(ngModel)]="physiologicalDataService.k" required></ion-input>
-            </ion-item>
-            <button ion-button block>Help me calculate this coefficient</button>
-        </ion-card-content>
-      </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Physiological data
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Weight (kg)</ion-label>
+        <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" (change)="physiologicalDataService.saveWeight()" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Insulin sensitivity coefficient</ion-label>
+        <ion-input type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01"></ion-input>
+      </ion-item>
+      <button ion-button block (click)="goToSensitivityCoefficientPage()">Help me calculate this coefficient</button>
+    </ion-card-content>
+  </ion-card>
   <ion-card>
     <ion-card-header>
       Blood glucose units

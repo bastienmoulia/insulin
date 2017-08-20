@@ -12,22 +12,14 @@ import { PhysiologicalDataService } from '../../app/physiological-data.service';
 export class HomePage {
   glucose: number;
   insulinUnit: number;
-  private glucoseTarget: number;
-  hypoPower: number;
   constructor(public navCtrl: NavController, public bloodGlucoseService: BloodGlucoseService, public physiologicalDataService: PhysiologicalDataService) {
-    this.glucoseTarget = 100;
-
-    this.hypoPower = 0.35 * 60 / this.physiologicalDataService.weight / this.physiologicalDataService.k * 100;
   }
 
   calcul() {
-    if (this.physiologicalDataService.k) {
-      this.hypoPower = 0.35 * 60 / this.physiologicalDataService.weight / this.physiologicalDataService.k * 100;
-    }
-    if (this.physiologicalDataService.k && this.glucose) {
-      if (this.glucose > this.glucoseTarget) {
-        let glucoseDelta = this.glucose - this.glucoseTarget;
-        this.insulinUnit = glucoseDelta / this.hypoPower;
+    if (this.physiologicalDataService.hypoPower && this.glucose) {
+      if (this.glucose > this.bloodGlucoseService.glucoseTarget) {
+        let glucoseDelta = this.glucose - this.bloodGlucoseService.glucoseTarget;
+        this.insulinUnit = glucoseDelta / this.physiologicalDataService.hypoPower;
       } else {
         this.insulinUnit = null;
       }

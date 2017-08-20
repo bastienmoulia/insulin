@@ -7,10 +7,12 @@ type BloodGlucoseUnit = "mg/dL" | "g/L" | "mmol/L";
 export class BloodGlucoseService {
   unit: BloodGlucoseUnit;
   units: BloodGlucoseUnit[];
+  glucoseTarget: number;
 
   constructor(private storage: Storage) {
     this.unit = 'mg/dL';
     this.units = ['mg/dL', 'g/L', 'mmol/L'];
+    this.glucoseTarget = 120;
     this.storage.get('bloodGlucoseUnit').then((unitFromStorage: BloodGlucoseUnit) => {
       console.log('Your bloodGlucoseUnit is', unitFromStorage);
       if (this.units.indexOf(unitFromStorage) === -1) {

@@ -8,6 +8,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ParametersPage } from '../pages/parameters/parameters';
+import { SensitivityCoefficientPage } from '../pages/sensitivity-coefficient/sensitivity-coefficient';
 import { BloodGlucoseService } from './blood-glucose.service';
 import { PhysiologicalDataService } from './physiological-data.service';
 
@@ -15,7 +16,8 @@ import { PhysiologicalDataService } from './physiological-data.service';
   declarations: [
     MyApp,
     HomePage,
-    ParametersPage
+    ParametersPage,
+    SensitivityCoefficientPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { PhysiologicalDataService } from './physiological-data.service';
   entryComponents: [
     MyApp,
     HomePage,
-    ParametersPage
+    ParametersPage,
+    SensitivityCoefficientPage
   ],
   providers: [
     StatusBar,
