@@ -33,4 +33,10 @@
       </ion-segment>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>Demi unit of Insulin</ion-label>
+      <ion-toggle [(ngModel)]="parametersService.demiUnit" (ionChange)="parametersService.saveDemiUnit()"></ion-toggle>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -9,9 +9,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ParametersPage } from '../pages/parameters/parameters';
 import { SensitivityCoefficientPage } from '../pages/sensitivity-coefficient/sensitivity-coefficient';
-import { BloodGlucoseService } from './blood-glucose.service';
-import { PhysiologicalDataService } from './physiological-data.service';
-import { InsulinUnitPipe } from './insulin-unit.pipe';
+import { BloodGlucoseService } from './shared/blood-glucose.service';
+import { PhysiologicalDataService } from './shared/physiological-data.service';
+import { ParametersService } from './shared/parameters.service';
+import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { InsulinUnitPipe } from './insulin-unit.pipe';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BloodGlucoseService,
-    PhysiologicalDataService
+    PhysiologicalDataService,
+    ParametersService
   ]
 })
 export class AppModule {}

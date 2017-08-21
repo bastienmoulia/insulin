@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { BloodGlucoseService } from '../../app/blood-glucose.service';
-import { PhysiologicalDataService } from '../../app/physiological-data.service';
+import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
+import { PhysiologicalDataService } from '../../app/shared/physiological-data.service';
 
 @Component({
   selector: 'page-sensitivity-coefficient',

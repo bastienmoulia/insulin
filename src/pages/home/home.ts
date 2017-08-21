@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ParametersPage } from '../parameters/parameters';
-import { BloodGlucoseService } from '../../app/blood-glucose.service';
-import { PhysiologicalDataService } from '../../app/physiological-data.service';
+import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
+import { PhysiologicalDataService } from '../../app/shared/physiological-data.service';
 
 interface PhysicalActivityStep {
   value: number;
