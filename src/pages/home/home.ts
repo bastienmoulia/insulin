@@ -17,10 +17,16 @@ interface PhysicalActivityStep {
 })
 export class HomePage {
   glucose: number;
-  insulinUnit: number;
+  insulinHeal: number;
+  insulinEat: number;
+  insulinTotal: number;
   physicalActivity: number;
-  physicalActivities: PhysicalActivityStep[]
+  physicalActivities: PhysicalActivityStep[];
+  carbohydrates: number;
   constructor(public navCtrl: NavController, public bloodGlucoseService: BloodGlucoseService, public physiologicalDataService: PhysiologicalDataService) {
+    this.insulinHeal = 0;
+    this.insulinEat = 0;
+    this.insulinTotal = 0;
     this.physicalActivity = 0;
     this.physicalActivities = [
       {
@@ -39,23 +45,39 @@ export class HomePage {
         value: 3,
         label: 'intense',
         reduction: 50
-      }, 
+      }
     ]
+    this.carbohydrates = 0;
   }
 
-  calcul() {
+  calculHeal() {
     if (this.physiologicalDataService.hypoPower && this.glucose) {
       let glucoseInMgdl = this.bloodGlucoseService.convertToMgdl(this.glucose);
       if (glucoseInMgdl > this.bloodGlucoseService.glucoseTarget) {
         let glucoseDelta = glucoseInMgdl - this.bloodGlucoseService.glucoseTarget;
-        this.insulinUnit = glucoseDelta / this.physiologicalDataService.hypoPower;
+        this.insulinHeal = glucoseDelta / this.physiologicalDataService.hypoPower;
       } else {
-        this.insulinUnit = 0;
+        this.insulinHeal = 0;
       }
-      this.insulinUnit = this.insulinUnit - this.insulinUnit * this.physicalActivities[this.physicalActivity].reduction / 100;
     } else {
-      this.insulinUnit = null;
+      this.insulinHeal = 0;
     }
+    this.calculTotal();
+  }
+
+  calculEat() {
+    if (this.physiologicalDataService.k && this.carbohydrates) {
+      this.insulinEat = this.carbohydrates * this.physiologicalDataService.k * 1.1 / 10;
+      // this.insulinEat = this.carbohydrates / this.physiologicalDataService.portion * this.physiologicalDataService.k * 2.2;
+    } else {
+      this.insulinEat = 0;
+    }
+    this.calculTotal();
+  }
+
+  calculTotal() {
+    this.insulinTotal = this.insulinHeal + this.insulinEat;
+    this.insulinTotal = this.insulinTotal - this.insulinTotal * this.physicalActivities[this.physicalActivity].reduction / 100;
   }
 
   goToParametersPage() {
