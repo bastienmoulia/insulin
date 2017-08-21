@@ -11,7 +11,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-card color="danger" *ngIf="!physiologicalDataService.hypoPower">
     <ion-card-content>
       Please enter your physiological data in the parameters.
@@ -21,14 +21,30 @@
       </button>
     </ion-card-content>
   </ion-card>
-  <ion-item>
-    <ion-label floating>Blood glucose ({{ bloodGlucoseService.unit }})</ion-label>
-    <ion-input type="number" clearInput [(ngModel)]="glucose" (change)="calcul()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
-   
-  </ion-item>
-  <div padding class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
-    The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
-  </div>
+  <ion-card>
+    <ion-card-header>
+      Blood glucose ({{ bloodGlucoseService.unit }})
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="number" placeholder="Enter your blood glucose" clearInput [(ngModel)]="glucose" (change)="calcul()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
+      </ion-item>
+      <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
+        The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Physical activity planned
+      <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-range [(ngModel)]="physicalActivity" color="danger" min="0" max="3" snaps="true" (ionChange)="calcul()"></ion-range>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
   <ion-card *ngIf="insulinUnit || insulinUnit === 0" color="primary">
     <ion-card-header *ngIf="insulinUnit !== 0">
       Insulin to do: <b>{{ insulinUnit | insulin}}</b> units
