@@ -16,6 +16,7 @@ export class PhysiologicalDataService {
   /** Number of UI to digest 10g of carbohydrate */
   carbohydrateCoefficient: number;
   carbohydrateCoefficients: CarbohydrateCoefficientDetail[];
+  hour: number;
 
   constructor(private storage: Storage) {
     this.carbohydrateCoefficients = [];
@@ -39,7 +40,13 @@ export class PhysiologicalDataService {
     });
     this.storage.get('carbohydrateCoefficients').then((carbohydrateCoefficients: CarbohydrateCoefficientDetail[]) => {
       this.updateCarbohydrateCoefficient();
+      this.hour = new Date().getHours();
     });
+    setInterval(() => {
+      if (this.hour && this.hour !== new Date().getHours()) {
+        this.updateCarbohydrateCoefficient();
+      }
+    }, 60 * 1000)
   }
 
   calculHypoPower() {
