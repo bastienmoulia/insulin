@@ -1,14 +1,24 @@
 import { Injectable} from '@angular/core';
 import { Storage } from '@ionic/storage';
 
+interface CarbohydrateCoefficientDetail {
+  coefficient: number;
+  startHour: number;
+}
+
 @Injectable()
 export class PhysiologicalDataService {
+  /** Insulin sensitivity coefficient */
   k: number;
   weight: number;
-  /** reduction of glucose in mg/dL for 1 UI */
+  /** Reduction of glucose in mg/dL for 1 UI */
   hypoPower: number;
+  /** Number of UI to digest 10g of carbohydrate */
+  carbohydrateCoefficient: number;
+  carbohydrateCoefficients: CarbohydrateCoefficientDetail[];
 
   constructor(private storage: Storage) {
+    this.carbohydrateCoefficients = [];
     this.storage.get('k').then((kFromStorage: number) => {
       console.log('Your k is', kFromStorage);
       if (kFromStorage) {
@@ -26,6 +36,9 @@ export class PhysiologicalDataService {
       } else {
         // TODO go to page init physiological data
       }
+    });
+    this.storage.get('carbohydrateCoefficients').then((carbohydrateCoefficients: CarbohydrateCoefficientDetail[]) => {
+      this.updateCarbohydrateCoefficient();
     });
   }
 
@@ -50,5 +63,23 @@ export class PhysiologicalDataService {
     console.log('Save weight: ', this.weight);
     this.storage.set('weight', this.weight);
     this.calculHypoPower();
+  }
+
+  updateCarbohydrateCoefficient() {
+    if (this.carbohydrateCoefficients.length > 0) {
+      const hour: number = new Date().getHours();
+      let newCarbohydrateCoefficient = null;
+      this.carbohydrateCoefficients.forEach((carbohydrateCoefficient) => {
+        if (carbohydrateCoefficient.startHour <= hour) {
+          newCarbohydrateCoefficient = carbohydrateCoefficient.coefficient;
+        }
+      });
+      if (newCarbohydrateCoefficient === null) {
+        newCarbohydrateCoefficient = this.carbohydrateCoefficients[this.carbohydrateCoefficients.length - 1].coefficient;
+      }
+      this.carbohydrateCoefficient = newCarbohydrateCoefficient;
+    } else {
+      this.carbohydrateCoefficient = this.k * 1.1;
+    }
   }
 }

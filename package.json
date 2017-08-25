@@ -6,7 +6,8 @@
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
-        "build": "ionic-app-scripts build",
+        "start": "ionic serve --lab",
+        "build": "ionic cordova build ios --prod",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve"

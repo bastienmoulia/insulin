@@ -44,7 +44,7 @@
         <ion-range [(ngModel)]="carbohydrates" color="primary" min="0" max="200" (ionChange)="calculEat()" pin="true"></ion-range>
       </ion-item>
     </ion-card-content>
-    <p text-center padding>Carbohydrate coefficient: {{ physiologicalDataService.k * 1.1 }}UI/10g</p>
+    <p text-center padding>Carbohydrate coefficient: {{ physiologicalDataService.carbohydrateCoefficient }}UI/10g</p>
   </ion-card>
   <button ion-button color="light" clear block small (click)="toggleMore()">
     <ng-container *ngIf="!more">More details</ng-container>

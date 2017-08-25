@@ -69,7 +69,8 @@ export class HomePage {
 
   calculEat() {
     if (this.physiologicalDataService.k && this.carbohydrates) {
-      this.insulinEat = this.carbohydrates * this.physiologicalDataService.k * 1.1 / 10;
+      this.physiologicalDataService.updateCarbohydrateCoefficient();
+      this.insulinEat = this.carbohydrates * this.physiologicalDataService.carbohydrateCoefficient / 10;
       // this.insulinEat = this.carbohydrates / this.physiologicalDataService.portion * this.physiologicalDataService.k * 2.2;
     } else {
       this.insulinEat = 0;
