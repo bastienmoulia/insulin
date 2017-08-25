@@ -44,8 +44,13 @@
         <ion-range [(ngModel)]="carbohydrates" color="primary" min="0" max="200" (ionChange)="calculEat()" pin="true"></ion-range>
       </ion-item>
     </ion-card-content>
+    <p text-center padding>Carbohydrate coefficient: {{ physiologicalDataService.k * 1.1 }}UI/10g</p>
   </ion-card>
-  <ion-card>
+  <button ion-button color="light" clear block small (click)="toggleMore()">
+    <ng-container *ngIf="!more">More details</ng-container>
+    <ng-container *ngIf="more">Less details</ng-container>
+  </button>
+  <ion-card *ngIf="more">
     <ion-card-header>
       Physical activity planned
       <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
@@ -73,7 +78,7 @@
           <ion-col col-9>Insulin to eat</ion-col>
           <ion-col col-3>{{ insulinEat| insulin}} units</ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="more">
           <ion-col col-9>Reduction for activity</ion-col>
           <ion-col col-3>{{ physicalActivities[physicalActivity].reduction }}%</ion-col>
         </ion-row>

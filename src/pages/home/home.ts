@@ -23,6 +23,7 @@ export class HomePage {
   physicalActivity: number;
   physicalActivities: PhysicalActivityStep[];
   carbohydrates: number;
+  more: boolean;
   constructor(public navCtrl: NavController, public bloodGlucoseService: BloodGlucoseService, public physiologicalDataService: PhysiologicalDataService) {
     this.insulinHeal = 0;
     this.insulinEat = 0;
@@ -48,6 +49,7 @@ export class HomePage {
       }
     ]
     this.carbohydrates = 0;
+    this.more = false;
   }
 
   calculHeal() {
@@ -77,10 +79,16 @@ export class HomePage {
 
   calculTotal() {
     this.insulinTotal = this.insulinHeal + this.insulinEat;
-    this.insulinTotal = this.insulinTotal - this.insulinTotal * this.physicalActivities[this.physicalActivity].reduction / 100;
+    if (this.more) {
+      this.insulinTotal = this.insulinTotal - this.insulinTotal * this.physicalActivities[this.physicalActivity].reduction / 100;
+    }
   }
 
   goToParametersPage() {
     this.navCtrl.push(ParametersPage);
+  }
+
+  toggleMore() {
+    this.more = !this.more;
   }
 }
