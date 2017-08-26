@@ -19,6 +19,26 @@
         <ion-input type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01" min="0.01" max="10"></ion-input>
       </ion-item>
       <button ion-button block (click)="goToSensitivityCoefficientPage()">Help me calculate this coefficient</button>
+      <hr>
+      Carbohydrate coefficient
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5>Start hour</ion-col>
+          <ion-col col-5>Coefficient</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let carbohydrateCoefficient of physiologicalDataService.carbohydrateCoefficients">
+          <ion-col col-5>{{ carbohydrateCoefficient.startHour }}h</ion-col>
+          <ion-col col-5>{{ carbohydrateCoefficient.coefficient }}</ion-col>
+          <ion-col col-2>
+            <button ion-button block clear small (click)="openPopover($event, carbohydrateCoefficient)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <button ion-button outline block small (click)="openPopover($event)">
+          Add a carbohydrate coefficient
+        </button>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
   <ion-card>

@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-interface CarbohydrateCoefficientDetail {
+export interface CarbohydrateCoefficientDetail {
   coefficient: number;
   startHour: number;
 }
@@ -19,7 +19,6 @@ export class PhysiologicalDataService {
   hour: number;
 
   constructor(private storage: Storage) {
-    this.carbohydrateCoefficients = [];
     this.storage.get('k').then((kFromStorage: number) => {
       console.log('Your k is', kFromStorage);
       if (kFromStorage) {
@@ -38,7 +37,9 @@ export class PhysiologicalDataService {
         // TODO go to page init physiological data
       }
     });
-    this.storage.get('carbohydrateCoefficients').then((carbohydrateCoefficients: CarbohydrateCoefficientDetail[]) => {
+    this.storage.get('carbohydrateCoefficients').then((carbohydrateCoefficientsFromStorage: CarbohydrateCoefficientDetail[]) => {
+      console.log('Your carbohydrateCoefficients are', carbohydrateCoefficientsFromStorage);
+      this.carbohydrateCoefficients = carbohydrateCoefficientsFromStorage;
       this.updateCarbohydrateCoefficient();
       this.hour = new Date().getHours();
     });
@@ -64,12 +65,32 @@ export class PhysiologicalDataService {
     console.log('Save k: ', this.k);
     this.storage.set('k', this.k);
     this.calculHypoPower();
+    if (this.carbohydrateCoefficients.length === 0) {
+      this.carbohydrateCoefficients.push({
+        startHour: 12,
+        coefficient: this.k * 1.1
+      })
+      this.saveCarbohydrateCoefficients();
+    }
   }
 
   saveWeight() {
     console.log('Save weight: ', this.weight);
     this.storage.set('weight', this.weight);
     this.calculHypoPower();
+  }
+
+  saveCarbohydrateCoefficients() {
+    this.carbohydrateCoefficients.sort((a, b) => {
+      if (a.startHour < b.startHour) {
+        return -1;
+      } else {
+        return 1;
+      }
+    })
+    console.log('Save carbohydrateCoefficients: ', this.carbohydrateCoefficients);
+    this.storage.set('carbohydrateCoefficients', this.carbohydrateCoefficients);
+    this.updateCarbohydrateCoefficient();
   }
 
   updateCarbohydrateCoefficient() {

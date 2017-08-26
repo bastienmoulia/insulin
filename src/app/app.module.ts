@@ -8,6 +8,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ParametersPage } from '../pages/parameters/parameters';
+import { PopoverCoefficientPage } from '../pages/parameters/popover-coefficient';
 import { SensitivityCoefficientPage } from '../pages/sensitivity-coefficient/sensitivity-coefficient';
 import { BloodGlucoseService } from './shared/blood-glucose.service';
 import { PhysiologicalDataService } from './shared/physiological-data.service';
@@ -20,7 +21,8 @@ import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
     HomePage,
     ParametersPage,
     SensitivityCoefficientPage,
-    InsulinUnitPipe
+    InsulinUnitPipe,
+    PopoverCoefficientPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
     MyApp,
     HomePage,
     ParametersPage,
-    SensitivityCoefficientPage
+    SensitivityCoefficientPage,
+    PopoverCoefficientPage
   ],
   providers: [
     StatusBar,

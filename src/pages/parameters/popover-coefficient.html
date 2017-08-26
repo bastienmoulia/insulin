@@ -1,0 +1,18 @@
+
+<h6 text-center>Carbohydrate coefficient</h6>
+<ion-item>
+  <ion-label floating>Start hour</ion-label>
+  <ion-datetime displayFormat="HH" [(ngModel)]="startHour"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label floating>Coefficient</ion-label>
+  <ion-input type="number" [(ngModel)]="coefficient"></ion-input>
+</ion-item>
+<div padding>
+  <button ion-button color="secondary" (click)="testIfHourExist()" [disabled]="!startHour || !coefficient">
+    Save
+  </button>
+  <button ion-button color="danger" (click)="delete()" *ngIf="physiologicalDataService.carbohydrateCoefficients.length > 1">
+    Delete
+  </button>
+</div>
