@@ -60,6 +60,12 @@
         <ion-range [(ngModel)]="physicalActivity" color="primary" min="0" max="3" snaps="true" (ionChange)="calculTotal()"></ion-range>
       </ion-item>
     </ion-card-content>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Fatty meal</ion-label>
+        <ion-toggle [(ngModel)]="fattyMeal" (ionChange)="calculTotal()"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
   </ion-card>
   <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
     <ion-card-header *ngIf="insulinTotal !== 0">
@@ -76,9 +82,13 @@
         </ion-row>
         <ion-row>
           <ion-col col-9>Insulin to eat</ion-col>
-          <ion-col col-3>{{ insulinEat| insulin}} units</ion-col>
+          <ion-col col-3>{{ insulinEat | insulin}} units</ion-col>
         </ion-row>
-        <ion-row *ngIf="more">
+        <ion-row *ngIf="fattyMeal">
+          <ion-col col-9>Insulin for fatty meal</ion-col>
+          <ion-col col-3>{{ insulinFat | insulin}} units</ion-col>
+        </ion-row>
+        <ion-row *ngIf="physicalActivity > 0">
           <ion-col col-9>Reduction for activity</ion-col>
           <ion-col col-3>{{ physicalActivities[physicalActivity].reduction }}%</ion-col>
         </ion-row>
