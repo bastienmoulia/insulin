@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, PopoverController } from 'ionic-angular';
 
 import { ParametersPage } from '../parameters/parameters';
 import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
 import { PhysiologicalDataService } from '../../app/shared/physiological-data.service';
+import { PopoverCustomCoefficientPage } from './popover-custom-coefficient';
 
 interface PhysicalActivityStep {
   value: number;
@@ -26,7 +27,13 @@ export class HomePage {
   carbohydrates: number;
   more: boolean;
   fattyMeal: boolean;
-  constructor(public navCtrl: NavController, public bloodGlucoseService: BloodGlucoseService, public physiologicalDataService: PhysiologicalDataService) {
+  customCarbohydrateCoefficient: number;
+  constructor(
+    public navCtrl: NavController,
+    public bloodGlucoseService: BloodGlucoseService,
+    public physiologicalDataService: PhysiologicalDataService,
+    public popoverCtrl: PopoverController
+  ) {
     this.insulinHeal = 0;
     this.insulinEat = 0;
     this.insulinFat = 0;
@@ -54,6 +61,7 @@ export class HomePage {
     this.carbohydrates = 0;
     this.more = false;
     this.fattyMeal = false;
+    this.customCarbohydrateCoefficient = null;
   }
 
   calculHeal() {
@@ -74,8 +82,11 @@ export class HomePage {
   calculEat() {
     if (this.physiologicalDataService.k && this.carbohydrates) {
       this.physiologicalDataService.updateCarbohydrateCoefficient();
-      this.insulinEat = this.carbohydrates * this.physiologicalDataService.carbohydrateCoefficient / 10;
-      // this.insulinEat = this.carbohydrates / this.physiologicalDataService.portion * this.physiologicalDataService.k * 2.2;
+      let coefficient = this.physiologicalDataService.carbohydrateCoefficient;
+      if (this.customCarbohydrateCoefficient) {
+        coefficient = this.customCarbohydrateCoefficient;
+      }
+      this.insulinEat = this.carbohydrates * coefficient / 10;
     } else {
       this.insulinEat = 0;
     }
@@ -104,5 +115,18 @@ export class HomePage {
 
   toggleMore() {
     this.more = !this.more;
+  }
+
+  openPopover(e: Event) {
+    const data = {carbohydrateCoefficient: this.customCarbohydrateCoefficient};
+    let popover = this.popoverCtrl.create(PopoverCustomCoefficientPage, data);
+    popover.present({
+      ev: e
+    });
+    popover.onWillDismiss((coefficient) => {
+      console.log('customCarbohydrateCoefficient', coefficient);
+      this.customCarbohydrateCoefficient = coefficient;
+      this.calculEat();
+    });
   }
 }

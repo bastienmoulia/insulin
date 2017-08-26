@@ -5,8 +5,8 @@
   <ion-datetime displayFormat="HH" [(ngModel)]="startHour"></ion-datetime>
 </ion-item>
 <ion-item>
-  <ion-label floating>Coefficient</ion-label>
-  <ion-input type="number" [(ngModel)]="coefficient"></ion-input>
+  <ion-label floating>Coefficient (IU/10g)</ion-label>
+  <ion-input type="number" [(ngModel)]="coefficient" min="0" max="10" step="0.1"></ion-input>
 </ion-item>
 <div padding>
   <button ion-button color="secondary" (click)="testIfHourExist()" [disabled]="!startHour || !coefficient">

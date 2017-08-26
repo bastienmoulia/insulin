@@ -11,9 +11,9 @@ export class PhysiologicalDataService {
   /** Insulin sensitivity coefficient */
   k: number;
   weight: number;
-  /** Reduction of glucose in mg/dL for 1 UI */
+  /** Reduction of glucose in mg/dL for 1 IU */
   hypoPower: number;
-  /** Number of UI to digest 10g of carbohydrate */
+  /** Number of IU to digest 10g of carbohydrate */
   carbohydrateCoefficient: number;
   carbohydrateCoefficients: CarbohydrateCoefficientDetail[];
   hour: number;

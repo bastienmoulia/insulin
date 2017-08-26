@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ParametersPage } from '../pages/parameters/parameters';
 import { PopoverCoefficientPage } from '../pages/parameters/popover-coefficient';
+import { PopoverCustomCoefficientPage } from '../pages/home/popover-custom-coefficient';
 import { SensitivityCoefficientPage } from '../pages/sensitivity-coefficient/sensitivity-coefficient';
 import { BloodGlucoseService } from './shared/blood-glucose.service';
 import { PhysiologicalDataService } from './shared/physiological-data.service';
@@ -22,7 +23,8 @@ import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
     ParametersPage,
     SensitivityCoefficientPage,
     InsulinUnitPipe,
-    PopoverCoefficientPage
+    PopoverCoefficientPage,
+    PopoverCustomCoefficientPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
     HomePage,
     ParametersPage,
     SensitivityCoefficientPage,
-    PopoverCoefficientPage
+    PopoverCoefficientPage,
+    PopoverCustomCoefficientPage
   ],
   providers: [
     StatusBar,
