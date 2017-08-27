@@ -21,86 +21,90 @@
       </button>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      Blood glucose ({{ bloodGlucoseService.unit }})
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-input type="number" placeholder="Enter your blood glucose" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
-      </ion-item>
-      <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
-        The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      Carbohydrates of the meal (g)
-      <ion-badge item-end>{{ carbohydrates }}</ion-badge>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-range [(ngModel)]="carbohydrates" color="primary" min="0" max="200" (ionChange)="calculEat()" pin="true"></ion-range>
-      </ion-item>
-    </ion-card-content>
-    <p text-center padding>
-      <span class="vertical-align">Carbohydrate coefficient: {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}IU/10g</span>
-      <button ion-button *ngIf="customCarbohydrateCoefficient" small (click)="openPopover($event)">
-        <ion-icon name="create"></ion-icon>
+  <div *ngIf="physiologicalDataService.hypoPower">
+    <ion-card>
+      <ion-card-header>
+        Blood glucose ({{ bloodGlucoseService.unit }})
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input type="number" placeholder="Enter your blood glucose" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
+        </ion-item>
+        <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
+          The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Carbohydrates of the meal (g)
+        <ion-badge item-end>{{ carbohydrates }}</ion-badge>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-range [(ngModel)]="carbohydrates" color="primary" min="0" max="200" (ionChange)="calculEat()" pin="true"></ion-range>
+        </ion-item>
+      </ion-card-content>
+      <p text-center padding>
+        <span class="vertical-align">Carbohydrate coefficient: {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}IU/10g</span>
+        <button ion-button *ngIf="customCarbohydrateCoefficient" small (click)="openPopover($event)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button clear *ngIf="!customCarbohydrateCoefficient" small (click)="openPopover($event)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </p>
+    </ion-card>
+    <div text-center>
+      <button ion-button color="light" clear small (click)="toggleMore()">
+        <ng-container *ngIf="!more">More details</ng-container>
+        <ng-container *ngIf="more">Less details</ng-container>
       </button>
-      <button ion-button clear *ngIf="!customCarbohydrateCoefficient" small (click)="openPopover($event)">
-        <ion-icon name="create"></ion-icon>
-      </button>
-    </p>
-  </ion-card>
-  <button ion-button color="light" clear block small (click)="toggleMore()">
-    <ng-container *ngIf="!more">More details</ng-container>
-    <ng-container *ngIf="more">Less details</ng-container>
-  </button>
-  <ion-card *ngIf="more">
-    <ion-card-header>
-      Physical activity planned
-      <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-range [(ngModel)]="physicalActivity" color="primary" min="0" max="3" snaps="true" (ionChange)="calculTotal()"></ion-range>
-      </ion-item>
-    </ion-card-content>
-    <ion-card-content>
-      <ion-item>
-        <ion-label>Fatty meal</ion-label>
-        <ion-toggle [(ngModel)]="fattyMeal" (ionChange)="calculTotal()"></ion-toggle>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
-    <ion-card-header *ngIf="insulinTotal !== 0">
-      Insulin to do: <b>{{ insulinTotal | insulin}}</b> units
-    </ion-card-header>
-    <ion-card-header *ngIf="insulinTotal === 0">
-      No need of insulin
-    </ion-card-header>
-    <ion-card-content *ngIf="insulinTotal !== 0">
-      <ion-grid>
-        <ion-row>
-          <ion-col col-9>Insulin to heal</ion-col>
-          <ion-col col-3>{{ insulinHeal | insulin}} units</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-9>Insulin to eat</ion-col>
-          <ion-col col-3>{{ insulinEat | insulin}} units</ion-col>
-        </ion-row>
-        <ion-row *ngIf="fattyMeal">
-          <ion-col col-9>Insulin for fatty meal</ion-col>
-          <ion-col col-3>{{ insulinFat | insulin}} units</ion-col>
-        </ion-row>
-        <ion-row *ngIf="physicalActivity > 0">
-          <ion-col col-9>Reduction for activity</ion-col>
-          <ion-col col-3>{{ physicalActivities[physicalActivity].reduction }}%</ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+    </div>
+    <ion-card *ngIf="more">
+      <ion-card-header>
+        Physical activity planned
+        <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-range [(ngModel)]="physicalActivity" color="primary" min="0" max="3" snaps="true" (ionChange)="calculTotal()"></ion-range>
+        </ion-item>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Fatty meal</ion-label>
+          <ion-toggle [(ngModel)]="fattyMeal" (ionChange)="calculTotal()"></ion-toggle>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
+      <ion-card-header *ngIf="insulinTotal !== 0">
+        Insulin to do: <b>{{ insulinTotal | insulin}}</b> units
+      </ion-card-header>
+      <ion-card-header *ngIf="insulinTotal === 0">
+        No need of insulin
+      </ion-card-header>
+      <ion-card-content *ngIf="insulinTotal !== 0">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-9>Insulin to heal</ion-col>
+            <ion-col col-3>{{ insulinHeal | insulin}} units</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-9>Insulin to eat</ion-col>
+            <ion-col col-3>{{ insulinEat | insulin}} units</ion-col>
+          </ion-row>
+          <ion-row *ngIf="fattyMeal">
+            <ion-col col-9>Insulin for fatty meal</ion-col>
+            <ion-col col-3>{{ insulinFat | insulin}} units</ion-col>
+          </ion-row>
+          <ion-row *ngIf="physicalActivity > 0">
+            <ion-col col-9>Reduction for activity</ion-col>
+            <ion-col col-3>{{ physicalActivities[physicalActivity].reduction }}%</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

@@ -42,6 +42,8 @@ export class PhysiologicalDataService {
       this.carbohydrateCoefficients = carbohydrateCoefficientsFromStorage;
       this.updateCarbohydrateCoefficient();
       this.hour = new Date().getHours();
+    }, () => {
+      this.updateCarbohydrateCoefficient();
     });
     setInterval(() => {
       if (this.hour && this.hour !== new Date().getHours()) {
@@ -65,11 +67,11 @@ export class PhysiologicalDataService {
     console.log('Save k: ', this.k);
     this.storage.set('k', this.k);
     this.calculHypoPower();
-    if (this.carbohydrateCoefficients.length === 0) {
-      this.carbohydrateCoefficients.push({
+    if (!this.carbohydrateCoefficients || this.carbohydrateCoefficients.length === 0) {
+      this.carbohydrateCoefficients = [{
         startHour: 12,
-        coefficient: this.k * 1.1
-      })
+        coefficient: Math.round(this.k * 1.1 * 100) / 100
+      }];
       this.saveCarbohydrateCoefficients();
     }
   }
@@ -94,7 +96,7 @@ export class PhysiologicalDataService {
   }
 
   updateCarbohydrateCoefficient() {
-    if (this.carbohydrateCoefficients.length > 0) {
+    if (this.carbohydrateCoefficients && this.carbohydrateCoefficients.length > 0) {
       const hour: number = new Date().getHours();
       let newCarbohydrateCoefficient = null;
       this.carbohydrateCoefficients.forEach((carbohydrateCoefficient) => {

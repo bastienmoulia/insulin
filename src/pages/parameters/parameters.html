@@ -23,12 +23,12 @@
   </ion-card>
   <ion-card>
     <ion-card-header>
-      Carbohydrate coefficient
+      Carbohydrate coefficients
     </ion-card-header>
     <ion-card-content>
       <coefficient-barchart *ngIf="chartData" [data]="chartData"></coefficient-barchart>
       <ion-grid>
-        <ion-row>
+        <ion-row *ngIf="physiologicalDataService.carbohydrateCoefficients && physiologicalDataService.carbohydrateCoefficients.length > 0">
           <ion-col col-5>Start hour</ion-col>
           <ion-col col-5>Coefficient</ion-col>
         </ion-row>

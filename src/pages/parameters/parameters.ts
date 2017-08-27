@@ -41,18 +41,20 @@ export class ParametersPage {
   }
 
   generateChartData() {
-    this.chartData = [];
-    for (let i = 0; i < 24; i++) {
-      let coefficient = this.physiologicalDataService.carbohydrateCoefficients[this.physiologicalDataService.carbohydrateCoefficients.length - 1].coefficient;
-      this.physiologicalDataService.carbohydrateCoefficients.forEach((coefDetail) => {
-        if (i >= coefDetail.startHour) {
-          coefficient = coefDetail.coefficient;
-        }
-      });
-      this.chartData.push([
-        new Date(2000, 0, 1, i),
-        coefficient
-      ]);
+    if (this.physiologicalDataService.carbohydrateCoefficients) {
+      this.chartData = [];
+      for (let i = 0; i < 24; i++) {
+        let coefficient = this.physiologicalDataService.carbohydrateCoefficients[this.physiologicalDataService.carbohydrateCoefficients.length - 1].coefficient;
+        this.physiologicalDataService.carbohydrateCoefficients.forEach((coefDetail) => {
+          if (i >= coefDetail.startHour) {
+            coefficient = coefDetail.coefficient;
+          }
+        });
+        this.chartData.push([
+          new Date(2000, 0, 1, i),
+          coefficient
+        ]);
+      }
     }
   }
 }
