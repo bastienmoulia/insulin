@@ -28,10 +28,10 @@
       </ion-card-header>
       <ion-card-content>
         <ion-item>
-          <ion-input type="number" placeholder="Enter your blood glucose" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
+          <ion-input type="number" placeholder="{{ 'HOME.BLOOD_GLUCOSE_PLACEHOLDER' | translate }}" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
         </ion-item>
         <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
-          The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+          The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}. A TRAD
         </div>
       </ion-card-content>
     </ion-card>
@@ -57,13 +57,13 @@
     </ion-card>
     <div text-center>
       <button ion-button color="light" clear small (click)="toggleMore()">
-        <ng-container *ngIf="!more">More details</ng-container>
-        <ng-container *ngIf="more">Less details</ng-container>
+        <ng-container *ngIf="!more">{{ 'HOME.MORE_DETAILS' | translate }}</ng-container>
+        <ng-container *ngIf="more">{{ 'HOME.LESS_DETAILS' | translate }}</ng-container>
       </button>
     </div>
     <ion-card *ngIf="more">
       <ion-card-header>
-        Physical activity planned
+        {{ 'HOME.PHYSICAL_ACTIVITY_PLANNED' | translate }}
         <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
       </ion-card-header>
       <ion-card-content>
@@ -73,34 +73,34 @@
       </ion-card-content>
       <ion-card-content>
         <ion-item>
-          <ion-label>Fatty meal</ion-label>
+          <ion-label>{{ 'HOME.FATTY_MEAL' | translate }}</ion-label>
           <ion-toggle [(ngModel)]="fattyMeal" (ionChange)="calculTotal()"></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>
     <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
       <ion-card-header *ngIf="insulinTotal !== 0">
-        Insulin to do: <b>{{ insulinTotal | insulin}}</b> units
+        {{ 'HOME.INSULIN_TO_DO' | translate }} <b>{{ insulinTotal | insulin}}</b> units
       </ion-card-header>
       <ion-card-header *ngIf="insulinTotal === 0">
-        No need of insulin
+        {{ 'HOME.NO_INSULIN' | translate }}
       </ion-card-header>
       <ion-card-content *ngIf="insulinTotal !== 0">
         <ion-grid>
           <ion-row>
-            <ion-col col-9>Insulin to heal</ion-col>
-            <ion-col col-3>{{ insulinHeal | insulin}} units</ion-col>
+            <ion-col col-9>{{ 'HOME.INSULIN_HEAL' | translate }}</ion-col>
+            <ion-col col-3>{{ insulinHeal | insulin}} {{ 'HOME.UNITS' | translate }}</ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-9>Insulin to eat</ion-col>
-            <ion-col col-3>{{ insulinEat | insulin}} units</ion-col>
+            <ion-col col-9>{{ 'HOME.INSULIN_EAT' | translate }}</ion-col>
+            <ion-col col-3>{{ insulinEat | insulin}} {{ 'HOME.UNITS' | translate }}</ion-col>
           </ion-row>
           <ion-row *ngIf="fattyMeal">
-            <ion-col col-9>Insulin for fatty meal</ion-col>
-            <ion-col col-3>{{ insulinFat | insulin}} units</ion-col>
+            <ion-col col-9>{{ 'HOME.INSULIN_FAT' | translate }}</ion-col>
+            <ion-col col-3>{{ insulinFat | insulin}} {{ 'HOME.UNITS' | translate }}</ion-col>
           </ion-row>
           <ion-row *ngIf="physicalActivity > 0">
-            <ion-col col-9>Reduction for activity</ion-col>
+            <ion-col col-9>{{ 'HOME.REDUCTION_ACTIVITY' | translate }}</ion-col>
             <ion-col col-3>{{ physicalActivities[physicalActivity].reduction }}%</ion-col>
           </ion-row>
         </ion-grid>
