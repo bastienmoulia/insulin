@@ -8,7 +8,7 @@ import { PhysiologicalDataService } from '../../app/shared/physiological-data.se
 })
 export class PopoverCustomCoefficientPage {
   coefficient: number;
-  constructor(public viewCtrl: ViewController, private physiologicalDataService: PhysiologicalDataService, private navParams: NavParams) {
+  constructor(public viewCtrl: ViewController, public physiologicalDataService: PhysiologicalDataService, private navParams: NavParams) {
   }
 
   ngOnInit() {

@@ -15,6 +15,7 @@ import { BloodGlucoseService } from './shared/blood-glucose.service';
 import { PhysiologicalDataService } from './shared/physiological-data.service';
 import { ParametersService } from './shared/parameters.service';
 import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
+import { BarchartComponent} from '../pages/parameters/barchart';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
     SensitivityCoefficientPage,
     InsulinUnitPipe,
     PopoverCoefficientPage,
-    PopoverCustomCoefficientPage
+    PopoverCustomCoefficientPage,
+    BarchartComponent
   ],
   imports: [
     BrowserModule,

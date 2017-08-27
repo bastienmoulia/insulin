@@ -26,6 +26,7 @@
       Carbohydrate coefficient
     </ion-card-header>
     <ion-card-content>
+      <coefficient-barchart *ngIf="chartData" [data]="chartData"></coefficient-barchart>
       <ion-grid>
         <ion-row>
           <ion-col col-5>Start hour</ion-col>

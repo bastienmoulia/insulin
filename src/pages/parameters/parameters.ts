@@ -12,6 +12,7 @@ import { PopoverCoefficientPage } from './popover-coefficient';
   templateUrl: 'parameters.html'
 })
 export class ParametersPage {
+  chartData: any[];
   constructor(
     public navCtrl: NavController,
     public bloodGlucoseService: BloodGlucoseService,
@@ -19,6 +20,9 @@ export class ParametersPage {
     public parametersService: ParametersService,
     public popoverCtrl: PopoverController
   ) {
+    setTimeout(() => {
+      this.generateChartData();
+    }, 100);
   }
 
   goToSensitivityCoefficientPage() {
@@ -31,5 +35,24 @@ export class ParametersPage {
     popover.present({
       ev: e
     });
+    popover.onWillDismiss(() => {
+      this.generateChartData();
+    })
+  }
+
+  generateChartData() {
+    this.chartData = [];
+    for (let i = 0; i < 24; i++) {
+      let coefficient = this.physiologicalDataService.carbohydrateCoefficients[this.physiologicalDataService.carbohydrateCoefficients.length - 1].coefficient;
+      this.physiologicalDataService.carbohydrateCoefficients.forEach((coefDetail) => {
+        if (i >= coefDetail.startHour) {
+          coefficient = coefDetail.coefficient;
+        }
+      });
+      this.chartData.push([
+        new Date(2000, 0, 1, i),
+        coefficient
+      ]);
+    }
   }
 }

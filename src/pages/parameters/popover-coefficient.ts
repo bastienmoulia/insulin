@@ -78,7 +78,7 @@ export class PopoverCoefficientPage implements OnInit {
   save(forceUpdateHour?: number) {
     const newCoefficient: CarbohydrateCoefficientDetail = {
       startHour: this.hourNumber(this.startHour),
-      coefficient: parseInt(this.coefficient)
+      coefficient: parseFloat(this.coefficient)
     };
     console.log("save", forceUpdateHour);
     if (forceUpdateHour >= 0) {
