@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "BLOOD_GLUCOSE": "Blood glucose",
+    "NO_PARAM": "Please enter your physiological data in the parameters.",
+    "CARBOHYDRATES_MEAL": "Carbohydrates of the meal",
+    "CARBOHYDRATE_COEFFICIENT": "Carbohydrate coefficient:"
+  },
+  "PARAM": {
+    "TITLE": "Parameters"
+  }
+}

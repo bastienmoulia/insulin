@@ -14,17 +14,17 @@
 <ion-content>
   <ion-card color="danger" *ngIf="!physiologicalDataService.hypoPower">
     <ion-card-content>
-      Please enter your physiological data in the parameters.
+      {{ 'HOME.NO_PARAM' | translate }}
       <button ion-button block color="light" icon-start (click)="goToParametersPage()">
         <ion-icon name="options"></ion-icon>
-        Parameters
+        {{ 'PARAM.TITLE' | translate }}
       </button>
     </ion-card-content>
   </ion-card>
   <div *ngIf="physiologicalDataService.hypoPower">
     <ion-card>
       <ion-card-header>
-        Blood glucose ({{ bloodGlucoseService.unit }})
+        {{ 'HOME.BLOOD_GLUCOSE' | translate }} ({{ bloodGlucoseService.unit }})
       </ion-card-header>
       <ion-card-content>
         <ion-item>
@@ -37,7 +37,7 @@
     </ion-card>
     <ion-card>
       <ion-card-header>
-        Carbohydrates of the meal (g)
+          {{ 'HOME.CARBOHYDRATES_MEAL' | translate }} (g)
         <ion-badge item-end>{{ carbohydrates }}</ion-badge>
       </ion-card-header>
       <ion-card-content>
@@ -46,7 +46,7 @@
         </ion-item>
       </ion-card-content>
       <p text-center padding>
-        <span class="vertical-align">Carbohydrate coefficient: {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}IU/10g</span>
+        <span class="vertical-align">{{ 'HOME.CARBOHYDRATE_COEFFICIENT' | translate }} {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}IU/10g</span>
         <button ion-button *ngIf="customCarbohydrateCoefficient" small (click)="openPopover($event)">
           <ion-icon name="create"></ion-icon>
         </button>

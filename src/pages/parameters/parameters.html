@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Parameters</ion-title>
+    <ion-title>{{ 'PARAM.TITLE' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -64,5 +64,19 @@
       <ion-label>Demi unit of Insulin</ion-label>
       <ion-toggle [(ngModel)]="parametersService.demiUnit" (ionChange)="parametersService.saveDemiUnit()"></ion-toggle>
     </ion-item>
+  </ion-card>
+  <ion-card color="dark">
+    <ion-card-header>
+      Beta
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="dark">
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="language" (ionChange)="changeLanguage()">
+          <ion-option value="en">English</ion-option>
+          <ion-option value="fr">Français</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
   </ion-card>
 </ion-content>

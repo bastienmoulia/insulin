@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "BLOOD_GLUCOSE": "Glycémie",
+    "NO_PARAM": "Merci d'ajouter vos données physiologiques dans les paramètres.",
+    "CARBOHYDRATES_MEAL": "Glucides du repas",
+    "CARBOHYDRATE_COEFFICIENT": "Coefficient glucidique :"
+  },
+  "PARAM": {
+    "TITLE": "Paramètres"
+  }
+}

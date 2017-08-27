@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
 import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../app/shared/physiological-data.service';
@@ -13,13 +14,16 @@ import { PopoverCoefficientPage } from './popover-coefficient';
 })
 export class ParametersPage {
   chartData: any[];
+  language: string;
   constructor(
     public navCtrl: NavController,
     public bloodGlucoseService: BloodGlucoseService,
     public physiologicalDataService: PhysiologicalDataService,
     public parametersService: ParametersService,
-    public popoverCtrl: PopoverController
+    public popoverCtrl: PopoverController,
+    public translate: TranslateService
   ) {
+    this.language = translate.currentLang;
     setTimeout(() => {
       this.generateChartData();
     }, 100);
@@ -56,5 +60,9 @@ export class ParametersPage {
         ]);
       }
     }
+  }
+
+  changeLanguage() {
+    this.translate.use(this.language);
   }
 }
