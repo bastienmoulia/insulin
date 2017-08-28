@@ -19,6 +19,7 @@ import { PhysiologicalDataService } from './shared/physiological-data.service';
 import { ParametersService } from './shared/parameters.service';
 import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
 import { BarchartComponent} from '../pages/parameters/barchart';
+import { AboutPage } from '../pages/about/about';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,7 +34,8 @@ export function createTranslateLoader(http: Http) {
     InsulinUnitPipe,
     PopoverCoefficientPage,
     PopoverCustomCoefficientPage,
-    BarchartComponent
+    BarchartComponent,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ export function createTranslateLoader(http: Http) {
     ParametersPage,
     SensitivityCoefficientPage,
     PopoverCoefficientPage,
-    PopoverCustomCoefficientPage
+    PopoverCustomCoefficientPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

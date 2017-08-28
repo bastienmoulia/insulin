@@ -48,6 +48,11 @@
     "COEFFICIENT_IS": "Your insulin sensitivity coefficient is",
     "USE": "Use this coefficient"
   },
+  "ABOUT": {
+    "TITLE": "About",
+    "PRESENTATION": "Presentation",
+    "WEBSITE": "Website"
+  },
   "BACK": "Back",
   "AND": "and"
 }

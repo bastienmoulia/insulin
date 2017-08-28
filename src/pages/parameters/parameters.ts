@@ -7,6 +7,7 @@ import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../a
 import { SensitivityCoefficientPage } from '../sensitivity-coefficient/sensitivity-coefficient';
 import { ParametersService } from '../../app/shared/parameters.service';
 import { PopoverCoefficientPage } from './popover-coefficient';
+import { AboutPage } from "../about/about";
 
 @Component({
   selector: 'page-parameters',
@@ -64,5 +65,9 @@ export class ParametersPage {
 
   changeLanguage() {
     this.translate.use(this.language);
+  }
+
+  goToAboutPage() {
+    this.navCtrl.push(AboutPage);
   }
 }

@@ -48,6 +48,11 @@
     "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",
     "USE": "Utiliser ce coefficient"
   },
+  "ABOUT": {
+    "TITLE": "À propos",
+    "PRESENTATION": "Présentation",
+    "WEBSITE": "Site web"
+  },
   "BACK": "Retour",
   "AND": "et"
 }
