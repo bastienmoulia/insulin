@@ -1,9 +1,25 @@
 {
   "HOME": {
     "BLOOD_GLUCOSE": "Glycémie",
+    "BLOOD_GLUCOSE_PLACEHOLDER": "Entrez votre glycémie",
     "NO_PARAM": "Merci d'ajouter vos données physiologiques dans les paramètres.",
     "CARBOHYDRATES_MEAL": "Glucides du repas",
-    "CARBOHYDRATE_COEFFICIENT": "Coefficient glucidique :"
+    "CARBOHYDRATE_COEFFICIENT": "Coefficient glucidique :",
+    "MORE_DETAILS": "Plus de détails",
+    "LESS_DETAILS": "Moins de détails",
+    "PHYSICAL_ACTIVITY_PLANNED": "Activitée physique prévue",
+    "ACTIVITY_NONE": "Aucune",
+    "ACTIVITY_LIGHT": "Légère",
+    "ACTIVITY_MEDIUM": "Moyenne",
+    "ACTIVITY_INTENSE": "Intense",
+    "FATTY_MEAL": "Repas gras",
+    "INSULIN_TO_DO": "Insuline à faire :",
+    "NO_INSULIN": "Pas besoin d'insuline",
+    "INSULIN_HEAL": "Insuline pour soigner",
+    "INSULIN_EAT": "Insuline pour manger",
+    "INSULIN_FAT": "Insuline pour repas gras",
+    "REDUCTION_ACTIVITY": "Réductuion pour activitée",
+    "UNITS": "unités"
   },
   "PARAM": {
     "TITLE": "Paramètres"
