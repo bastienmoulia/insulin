@@ -19,9 +19,35 @@
     "INSULIN_EAT": "Insuline pour manger",
     "INSULIN_FAT": "Insuline pour repas gras",
     "REDUCTION_ACTIVITY": "Réductuion pour activitée",
-    "UNITS": "unités"
+    "UNITS": "unités",
+    "POPOVER": {
+      "CUSTOM": "Coefficient personnalisé",
+      "USE": "Utiliser ce coefficient",
+      "RESET": "Réinitialiser"
+    }
   },
   "PARAM": {
-    "TITLE": "Paramètres"
-  }
+    "TITLE": "Paramètres",
+    "PHYSIOLOGICAL_DATA": "Données physiologiques",
+    "WEIGHT": "Poids",
+    "SENSITIVITY": "Coefficient de sensibilité à l'insuline",
+    "SENSITIVITY_HELP": "Aidez moi à trouver ce coefficient",
+    "CARBOHYDRATES": "Coefficients glucidique",
+    "START_HOUR": "Heure de début",
+    "COEFFICIENT": "Coefficient",
+    "ADD_CARBOHYDRATE": "Ajouter un coefficient glucidique",
+    "BLOOD_GLUCOSE_UNITS": "Unités de la glycémie",
+    "DEMI_UNIT": "Demi unités d'insuline",
+    "CARBOHYDRATE": "Coefficient glucidique",
+    "SAVE": "Sauver",
+    "DELETE": "Supprimer"
+  },
+  "SENSIBILITY": {
+    "REDUCE": "1 unité d'insuline réduit la glycémie de combien",
+    "BLOOD_GLUCOSE_BETWEEN": "La glycémie doit être entre",
+    "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",
+    "USE": "Utiliser ce coefficient"
+  },
+  "BACK": "Retour",
+  "AND": "et"
 }

@@ -19,9 +19,35 @@
     "INSULIN_EAT": "Insulin to eat",
     "INSULIN_FAT": "Insulin for fatty meal",
     "REDUCTION_ACTIVITY": "Reduction for activity",
-    "UNITS": "units"
+    "UNITS": "units",
+    "POPOVER": {
+      "CUSTOM": "Custom coefficient",
+      "USE": "Use custom coefficient",
+      "RESET": "Reset"
+    }
   },
   "PARAM": {
-    "TITLE": "Parameters"
-  }
+    "TITLE": "Parameters",
+    "PHYSIOLOGICAL_DATA": "Physiological data",
+    "WEIGHT": "Weight",
+    "SENSITIVITY": "Insulin sensitivity coefficient",
+    "SENSITIVITY_HELP": "Help me calculate this coefficient",
+    "CARBOHYDRATES": "Carbohydrate coefficients",
+    "START_HOUR": "Start hour",
+    "COEFFICIENT": "Coefficient",
+    "ADD_CARBOHYDRATE": "Add a carbohydrate coefficient",
+    "BLOOD_GLUCOSE_UNITS": "Blood glucose units",
+    "DEMI_UNIT": "Demi unit of insulin",
+    "CARBOHYDRATE": "Carbohydrate coefficient",
+    "SAVE": "Save",
+    "DELETE": "Delete"
+  },
+  "SENSIBILITY": {
+    "REDUCE": "1 unit of insulin reduce your glucose by how many",
+    "BLOOD_GLUCOSE_BETWEEN": "The blood glucose value must be between",
+    "COEFFICIENT_IS": "Your insulin sensitivity coefficient is",
+    "USE": "Use this coefficient"
+  },
+  "BACK": "Back",
+  "AND": "and"
 }

@@ -31,7 +31,7 @@
           <ion-input type="number" placeholder="{{ 'HOME.BLOOD_GLUCOSE_PLACEHOLDER' | translate }}" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
         </ion-item>
         <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
-          The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}. A TRAD
+          {{ 'SENSIBILITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
         </div>
       </ion-card-content>
     </ion-card>
@@ -64,7 +64,7 @@
     <ion-card *ngIf="more">
       <ion-card-header>
         {{ 'HOME.PHYSICAL_ACTIVITY_PLANNED' | translate }}
-        <ion-badge item-end>{{ physicalActivities[physicalActivity].label }}</ion-badge>
+        <ion-badge item-end>{{ 'HOME.ACTIVITY_' + physicalActivities[physicalActivity].label | uppercase | translate  }}</ion-badge>
       </ion-card-header>
       <ion-card-content>
         <ion-item>

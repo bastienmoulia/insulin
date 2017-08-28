@@ -1,27 +1,27 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Insulin sensitivity coefficient</ion-title>
+    <ion-title>{{ 'PARAM.SENSITIVITY' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label>Weight (kg)</ion-label>
+    <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
     <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label stacked>1 Unit of Insulin reduce your glucose by how many ({{ bloodGlucoseService.unit }})</ion-label>
+    <ion-label stacked>{{ 'SENSIBILITY.REDUCE' | translate }} ({{ bloodGlucoseService.unit }})</ion-label>
     <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
   </ion-item>
   <div padding class="form-errors" *ngIf="glucoseReduction && (glucoseReduction < bloodGlucoseService.min || glucoseReduction > bloodGlucoseService.max)">
-    The blood glucose value must be between {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} and {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+    {{ 'SENSIBILITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
   </div>
   <ion-card *ngIf="k">
-    <ion-card-header>
-      Your insulin sensitivity coefficient is <b>{{ k }}</b>
+    <ion-card-header class="multiline">
+      {{ 'SENSIBILITY.COEFFICIENT_IS' | translate }} <b>{{ k }}</b>
     </ion-card-header>
     <ion-card-content>
-      <button ion-button block (click)="saveK()">Use this coefficient</button>
+      <button ion-button block (click)="saveK()">{{ 'SENSIBILITY.USE' | translate }}</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

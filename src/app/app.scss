@@ -21,3 +21,8 @@
 .form-errors {
   color: color($colors, danger, base);
 }
+.multiline {
+  overflow: auto;
+  text-overflow: unset;
+  white-space: inherit;
+}
