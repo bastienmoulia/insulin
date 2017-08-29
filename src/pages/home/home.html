@@ -31,7 +31,7 @@
           <ion-input type="number" placeholder="{{ 'HOME.BLOOD_GLUCOSE_PLACEHOLDER' | translate }}" clearInput [(ngModel)]="glucose" (change)="calculHeal()" autofocus [disabled]="!physiologicalDataService.hypoPower" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
         </ion-item>
         <div class="form-errors" *ngIf="glucose && (glucose < bloodGlucoseService.min || glucose > bloodGlucoseService.max)">
-          {{ 'SENSIBILITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+          {{ 'SENSITIVITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
         </div>
       </ion-card-content>
     </ion-card>

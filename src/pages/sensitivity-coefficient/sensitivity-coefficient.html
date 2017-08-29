@@ -1,27 +1,73 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ 'PARAM.SENSITIVITY' | translate }}</ion-title>
+    <ion-title>{{ 'SENSITIVITY.TITLE' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
-    <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>{{ 'SENSIBILITY.REDUCE' | translate }} ({{ bloodGlucoseService.unit }})</ion-label>
-    <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
-  </ion-item>
-  <div padding class="form-errors" *ngIf="glucoseReduction && (glucoseReduction < bloodGlucoseService.min || glucoseReduction > bloodGlucoseService.max)">
-    {{ 'SENSIBILITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+  <ion-card>
+    <ion-card-content>
+      TODO: Description of the sensitivity coefficient
+    </ion-card-content>
+  </ion-card>
+
+  <div padding>
+    <ion-segment [(ngModel)]="method" color="light" (ionChange)="calculK()">
+      <ion-segment-button value="simple">
+        {{ 'SENSITIVITY.SIMPLE' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="complex">
+        {{ 'SENSITIVITY.COMPLEX' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="reverse">
+        {{ 'SENSITIVITY.REVERSE' | translate }}
+      </ion-segment-button>
+    </ion-segment>
   </div>
-  <ion-card *ngIf="k">
-    <ion-card-header class="multiline">
-      {{ 'SENSIBILITY.COEFFICIENT_IS' | translate }} <b>{{ k }}</b>
+
+  <ion-card *ngIf="method === 'simple'">
+    <ion-card-header>
+      {{ 'SENSITIVITY.SIMPLE_METHOD' | translate }}
     </ion-card-header>
     <ion-card-content>
-      <button ion-button block (click)="saveK()">{{ 'SENSIBILITY.USE' | translate }}</button>
+      TODO: Simple method form
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="method === 'complex'">
+    <ion-card-header>
+      {{ 'SENSITIVITY.COMPLEX_METHOD' | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      TODO: Complex method form
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="method === 'reverse'">
+    <ion-card-header>
+      {{ 'SENSITIVITY.REVERSE_METHOD' | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
+        <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'SENSITIVITY.REDUCE' | translate }} ({{ bloodGlucoseService.unit }})</ion-label>
+        <ion-input type="number" [(ngModel)]="glucoseReduction" (change)="calculK()" step="{{bloodGlucoseService.step}}" min="{{bloodGlucoseService.min}}" max="{{bloodGlucoseService.max}}"></ion-input>
+      </ion-item>
+      <div padding class="form-errors" *ngIf="glucoseReduction && (glucoseReduction < bloodGlucoseService.min || glucoseReduction > bloodGlucoseService.max)">
+        {{ 'SENSITIVITY.BLOOD_GLUCOSE_BETWEEN' | translate }} {{ bloodGlucoseService.min }}&nbsp;{{ bloodGlucoseService.unit }} {{ 'AND' | translate }} {{ bloodGlucoseService.max }}&nbsp;{{ bloodGlucoseService.unit }}.
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="k">
+    <ion-card-header class="multiline">
+      {{ 'SENSITIVITY.COEFFICIENT_IS' | translate }} <b>{{ k }}</b>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button block (click)="saveK()">{{ 'SENSITIVITY.USE' | translate }}</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

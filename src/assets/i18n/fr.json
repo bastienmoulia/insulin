@@ -46,7 +46,14 @@
     "CANCEL": "Annuler",
     "OK": "OK"
   },
-  "SENSIBILITY": {
+  "SENSITIVITY": {
+    "TITLE": "Calcul du coef.",
+    "SIMPLE": "Simple",
+    "COMPLEX": "Complexe",
+    "REVERSE": "Inverse",
+    "SIMPLE_METHOD": "Méthode simple",
+    "COMPLEX_METHOD": "Méthode complexe",
+    "REVERSE_METHOD": "Méthode inverse",
     "REDUCE": "1 unité d'insuline réduit la glycémie de combien",
     "BLOOD_GLUCOSE_BETWEEN": "La glycémie doit être entre",
     "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",

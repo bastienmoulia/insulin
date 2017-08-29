@@ -9,18 +9,30 @@ import { PhysiologicalDataService } from '../../app/shared/physiological-data.se
   templateUrl: 'sensitivity-coefficient.html'
 })
 export class SensitivityCoefficientPage {
+  method: 'simple' | 'complex' | 'reverse';
   glucoseReduction: number;
   k: number;
   weight: number;
   constructor(public navCtrl: NavController, public physiologicalDataService: PhysiologicalDataService, public bloodGlucoseService: BloodGlucoseService) {
     this.weight = physiologicalDataService.weight;
+    this.method = 'simple';
   }
 
   calculK() {
-    if (this.glucoseReduction && this.weight) {
-      this.k = Math.round(0.35 * 60 / this.weight * 100 / this.bloodGlucoseService.convertToMgdl(this.glucoseReduction) * 100) / 100;
-    } else {
+    switch(this.method) {
+      case 'simple':
       this.k = null;
+        break;
+      case 'complex':
+        this.k = null;
+        break;
+      case 'reverse':
+        if (this.glucoseReduction && this.weight) {
+          this.k = Math.round(0.35 * 60 / this.weight * 100 / this.bloodGlucoseService.convertToMgdl(this.glucoseReduction) * 100) / 100;
+        } else {
+          this.k = null;
+        }
+        break;
     }
   }
 

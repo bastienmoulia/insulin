@@ -46,7 +46,14 @@
     "CANCEL": "Cancel",
     "OK": "OK"
   },
-  "SENSIBILITY": {
+  "SENSITIVITY": {
+    "TITLE": "Coefficient calcul",
+    "SIMPLE": "Simple",
+    "COMPLEX": "Complex",
+    "REVERSE": "Reverse",
+    "SIMPLE_METHOD": "Simple method",
+    "COMPLEX_METHOD": "Complex method",
+    "REVERSE_METHOD": "Reverse method",
     "REDUCE": "1 unit of insulin reduce your glucose by how many",
     "BLOOD_GLUCOSE_BETWEEN": "The blood glucose value must be between",
     "COEFFICIENT_IS": "Your insulin sensitivity coefficient is",
