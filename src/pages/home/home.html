@@ -80,7 +80,7 @@
     </ion-card>
     <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
       <ion-card-header *ngIf="insulinTotal !== 0">
-        {{ 'HOME.INSULIN_TO_DO' | translate }} <b>{{ insulinTotal | insulin}}</b> units
+        {{ 'HOME.INSULIN_TO_DO' | translate }} <b>{{ insulinTotal | insulin}}</b> {{ 'HOME.UNITS' | translate }}
       </ion-card-header>
       <ion-card-header *ngIf="insulinTotal === 0">
         {{ 'HOME.NO_INSULIN' | translate }}

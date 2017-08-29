@@ -40,7 +40,11 @@
     "DEMI_UNIT": "Demi unités d'insuline",
     "CARBOHYDRATE": "Coefficient glucidique",
     "SAVE": "Sauver",
-    "DELETE": "Supprimer"
+    "DELETE": "Supprimer",
+    "CONFIRM_UPDATE": "Confirmer le remplacement",
+    "CONFIRM_UPDATE_MESSAGE": "Il y a déjà un coefficient pou cette heure ({{coefficient}}). Voulez-vous le remplacer ?",
+    "CANCEL": "Annuler",
+    "OK": "OK"
   },
   "SENSIBILITY": {
     "REDUCE": "1 unité d'insuline réduit la glycémie de combien",

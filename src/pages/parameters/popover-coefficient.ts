@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewController, NavParams, AlertController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../app/shared/physiological-data.service';
 
@@ -10,7 +11,7 @@ export class PopoverCoefficientPage implements OnInit {
   carbohydrateCoefficientInit: CarbohydrateCoefficientDetail;
   startHour: string;
   coefficient: string;
-  constructor(public viewCtrl: ViewController, public navParams: NavParams, public physiologicalDataService: PhysiologicalDataService, private alertCtrl: AlertController) {
+  constructor(public viewCtrl: ViewController, public navParams: NavParams, public physiologicalDataService: PhysiologicalDataService, private alertCtrl: AlertController, public translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -48,28 +49,29 @@ export class PopoverCoefficientPage implements OnInit {
     });
     console.log("previousCarbohydrateCoefficient", previousCarbohydrateCoefficient);
     if (previousCarbohydrateCoefficient !== null) {
-      const message = 'There is already a coefficient for this hour (' + previousCarbohydrateCoefficient.coefficient + '). Do you want to update it?';
-      let alert = this.alertCtrl.create({
-        title: 'Confirm update',
-        message: message,
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
+      this.translate.get('PARAM.CONFIRM_UPDATE_MESSAGE', {coefficient: previousCarbohydrateCoefficient.coefficient}).subscribe((message: string) => {
+        let alert = this.alertCtrl.create({
+          title: 'Confirm update',
+          message: message,
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'OK',
+              handler: () => {
+                console.log('OK clicked');
+                this.save(previousCarbohydrateCoefficient.startHour);
+              }
             }
-          },
-          {
-            text: 'OK',
-            handler: () => {
-              console.log('OK clicked');
-              this.save(previousCarbohydrateCoefficient.startHour);
-            }
-          }
-        ]
+          ]
+        });
+        alert.present();
       });
-      alert.present();
     } else {
       this.save();
     }

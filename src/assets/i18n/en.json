@@ -40,7 +40,11 @@
     "DEMI_UNIT": "Demi unit of insulin",
     "CARBOHYDRATE": "Carbohydrate coefficient",
     "SAVE": "Save",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "CONFIRM_UPDATE": "Confirm update",
+    "CONFIRM_UPDATE_MESSAGE": "There is already a coefficient for this hour ({{coefficient}}). Do you want to update it?",
+    "CANCEL": "Cancel",
+    "OK": "OK"
   },
   "SENSIBILITY": {
     "REDUCE": "1 unit of insulin reduce your glucose by how many",
