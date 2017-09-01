@@ -13,6 +13,7 @@ export class SensitivityCoefficientPage {
   glucoseReduction: number;
   k: number;
   weight: number;
+  totalInsulin: number;
   constructor(public navCtrl: NavController, public physiologicalDataService: PhysiologicalDataService, public bloodGlucoseService: BloodGlucoseService) {
     this.weight = physiologicalDataService.weight;
     this.method = 'simple';
@@ -21,9 +22,14 @@ export class SensitivityCoefficientPage {
   calculK() {
     switch(this.method) {
       case 'simple':
-      this.k = null;
+        if (this.totalInsulin && this.weight) {
+          this.k = Math.round((this.totalInsulin / (0.7 * this.weight)) * 100) / 100;
+        } else {
+          this.k = null;
+        }
         break;
       case 'complex':
+        // TODO: calcul complex
         this.k = null;
         break;
       case 'reverse':

@@ -57,7 +57,8 @@
     "REDUCE": "1 unité d'insuline réduit la glycémie de combien",
     "BLOOD_GLUCOSE_BETWEEN": "La glycémie doit être entre",
     "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",
-    "USE": "Utiliser ce coefficient"
+    "USE": "Utiliser ce coefficient",
+    "DAILY_TOTAL_INSULIN": "Total d'insuline journalière"
   },
   "ABOUT": {
     "TITLE": "À propos",

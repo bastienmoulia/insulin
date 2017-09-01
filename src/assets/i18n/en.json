@@ -57,7 +57,8 @@
     "REDUCE": "1 unit of insulin reduce your glucose by how many",
     "BLOOD_GLUCOSE_BETWEEN": "The blood glucose value must be between",
     "COEFFICIENT_IS": "Your insulin sensitivity coefficient is",
-    "USE": "Use this coefficient"
+    "USE": "Use this coefficient",
+    "DAILY_TOTAL_INSULIN": "Daily total Insulin"
   },
   "ABOUT": {
     "TITLE": "About",
