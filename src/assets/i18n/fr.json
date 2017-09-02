@@ -65,7 +65,11 @@
     "TITLE": "À propos",
     "PRESENTATION": "Présentation",
     "CONTACT": "Contactez moi",
-    "WEBSITE": "Site web"
+    "WEBSITE": "Site web",
+    "PRESENTATION_TEXT_1": "Développeur web et diabètique, j'ai développé cette application pour mieux maitriser mon diabète.",
+    "PRESENTATION_TEXT_2": "J'espère qu'elle pourra également vous servir.",
+    "PRESENTATION_TEXT_3": "Si vous avez des remarques n'hésitez pas à me contacter.",
+    "PRESENTATION_TEXT_4": "L'application est open source, vous pouvez donc m'aidez à l'améliorer, que ce soit en signalant des bugs, en ajoutant des traductions ou en proposant de nouvelles fonctionnalités."
   },
   "BACK": "Retour",
   "AND": "et"

@@ -65,7 +65,11 @@
     "TITLE": "About",
     "PRESENTATION": "Presentation",
     "CONTACT": "Contact me",
-    "WEBSITE": "Website"
+    "WEBSITE": "Website",
+    "PRESENTATION_TEXT_1": "Web developer and diabetic, I developed this application to better control my diabetes.",
+    "PRESENTATION_TEXT_2": "I hope it will also serve you.",
+    "PRESENTATION_TEXT_3": "If you have any remarks do not hesitate to contact me.",
+    "PRESENTATION_TEXT_4": "The application is open source, so you can help me improve, either by reporting bugs, adding translations or by offering new features."
   },
   "BACK": "Back",
   "AND": "and"
