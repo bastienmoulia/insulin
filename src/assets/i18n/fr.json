@@ -58,7 +58,8 @@
     "BLOOD_GLUCOSE_BETWEEN": "La glycémie doit être entre",
     "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",
     "USE": "Utiliser ce coefficient",
-    "DAILY_TOTAL_INSULIN": "Total d'insuline journalière"
+    "DAILY_TOTAL_INSULIN": "Total d'insuline journalière",
+    "CARBOHYDRATE_DAILY": "Glucides quotidiens"
   },
   "ABOUT": {
     "TITLE": "À propos",

@@ -47,7 +47,19 @@
       {{ 'SENSITIVITY.COMPLEX_METHOD' | translate }}
     </ion-card-header>
     <ion-card-content>
-      TODO: Complex method form
+      TODO: Complex method description
+      <ion-item>
+        <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
+        <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'SENSITIVITY.DAILY_TOTAL_INSULIN' | translate }}</ion-label>
+        <ion-input type="number" [(ngModel)]="totalInsulin" (change)="calculK()" min="1" max="500"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'SENSITIVITY.CARBOHYDRATE_DAILY' | translate }} (g)</ion-label>
+        <ion-input type="number" [(ngModel)]="carbohydrateDaily" (change)="calculK()" min="1" max="1000"></ion-input>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 

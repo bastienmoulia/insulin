@@ -14,6 +14,7 @@ export class SensitivityCoefficientPage {
   k: number;
   weight: number;
   totalInsulin: number;
+  carbohydrateDaily: number;
   constructor(public navCtrl: NavController, public physiologicalDataService: PhysiologicalDataService, public bloodGlucoseService: BloodGlucoseService) {
     this.weight = physiologicalDataService.weight;
     this.method = 'simple';
@@ -29,8 +30,11 @@ export class SensitivityCoefficientPage {
         }
         break;
       case 'complex':
-        // TODO: calcul complex
-        this.k = null;
+        if (this.totalInsulin && this.weight && this.carbohydrateDaily) {
+          this.k = Math.round((this.totalInsulin / (0.35 * this.weight + this.carbohydrateDaily * 2.2 / 20)) * 100) / 100;
+        } else {
+          this.k = null;
+        }
         break;
       case 'reverse':
         if (this.glucoseReduction && this.weight) {

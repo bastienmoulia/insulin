@@ -58,7 +58,8 @@
     "BLOOD_GLUCOSE_BETWEEN": "The blood glucose value must be between",
     "COEFFICIENT_IS": "Your insulin sensitivity coefficient is",
     "USE": "Use this coefficient",
-    "DAILY_TOTAL_INSULIN": "Daily total Insulin"
+    "DAILY_TOTAL_INSULIN": "Daily total Insulin",
+    "CARBOHYDRATE_DAILY": "Carbohydrate daily"
   },
   "ABOUT": {
     "TITLE": "About",
