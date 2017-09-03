@@ -70,8 +70,10 @@
     "WEBSITE": "Site web",
     "PRESENTATION_TEXT_1": "Développeur web et diabètique, j'ai développé cette application pour mieux maitriser mon diabète.",
     "PRESENTATION_TEXT_2": "J'espère qu'elle pourra également vous servir.",
-    "PRESENTATION_TEXT_3": "Si vous avez des remarques n'hésitez pas à me contacter.",
-    "PRESENTATION_TEXT_4": "L'application est open source, vous pouvez donc m'aidez à l'améliorer, que ce soit en signalant des bugs, en ajoutant des traductions ou en proposant de nouvelles fonctionnalités."
+    "PRESENTATION_TEXT_3": "Les données de l'application sont à caractère informatif.",
+    "PRESENTATION_TEXT_4": "Si elles sont trop différentes de vos données habituelles, n'en prenez pas compte. Il est possible que des paramètres soient mal renseignés.",
+    "PRESENTATION_TEXT_5": "Si vous avez des remarques n'hésitez pas à me contacter.",
+    "PRESENTATION_TEXT_6": "L'application est open source, vous pouvez donc m'aidez à l'améliorer, que ce soit en signalant des bugs, en ajoutant des traductions ou en proposant de nouvelles fonctionnalités."
   },
   "BACK": "Retour",
   "AND": "et"
