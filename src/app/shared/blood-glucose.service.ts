@@ -12,6 +12,11 @@ export class BloodGlucoseService {
     min: number,
     max: number
   }[];
+  /** Glucose maximal target in mg/dL */
+  glucoseTargetMax: number;
+  /** Glucose minimal target in mg/dL */
+  glucoseTargetMin: number;
+  /** Glucose  target in mg/dL */
   glucoseTarget: number;
   step: number;
   min: number;
@@ -37,7 +42,9 @@ export class BloodGlucoseService {
         max: 100
       }
     ];
-    this.glucoseTarget = 120;
+    this.glucoseTargetMax = 120;
+    this.glucoseTargetMin = 70;
+    this.glucoseTarget = 100;
     this.storage.get('bloodGlucoseUnit').then((unitFromStorage: BloodGlucoseUnit) => {
       console.log('Your bloodGlucoseUnit is', unitFromStorage);
       if (this.units.findIndex((unit) => unit.value === unitFromStorage) === -1) {

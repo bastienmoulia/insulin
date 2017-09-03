@@ -20,6 +20,8 @@
     "INSULIN_FAT": "Insulin for fatty meal",
     "REDUCTION_ACTIVITY": "Reduction for activity",
     "UNITS": "units",
+    "HYPOGLYCEMIA": "Hypoglycemia",
+    "NEEDED_SUGAR": "Needs in sugar:",
     "POPOVER": {
       "CUSTOM": "Custom coefficient",
       "USE": "Use custom coefficient",

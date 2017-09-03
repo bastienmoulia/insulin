@@ -28,6 +28,7 @@ export class HomePage {
   more: boolean;
   fattyMeal: boolean;
   customCarbohydrateCoefficient: number;
+  sugarHeal: number;
   constructor(
     public navCtrl: NavController,
     public bloodGlucoseService: BloodGlucoseService,
@@ -38,6 +39,7 @@ export class HomePage {
     this.insulinEat = 0;
     this.insulinFat = 0;
     this.insulinTotal = 0;
+    this.sugarHeal = 0;
     this.physicalActivity = 0;
     this.physicalActivities = [
       {
@@ -67,14 +69,24 @@ export class HomePage {
   calculHeal() {
     if (this.physiologicalDataService.hypoPower && this.glucose) {
       let glucoseInMgdl = this.bloodGlucoseService.convertToMgdl(this.glucose);
-      if (glucoseInMgdl > this.bloodGlucoseService.glucoseTarget) {
+      if (glucoseInMgdl > this.bloodGlucoseService.glucoseTargetMax) {
         let glucoseDelta = glucoseInMgdl - this.bloodGlucoseService.glucoseTarget;
         this.insulinHeal = glucoseDelta / this.physiologicalDataService.hypoPower;
+        this.sugarHeal = 0;
       } else {
         this.insulinHeal = 0;
+        if (glucoseInMgdl < this.bloodGlucoseService.glucoseTargetMin) {
+          let glucoseDelta = this.bloodGlucoseService.glucoseTarget - glucoseInMgdl;
+          /** augmentation of glycemy in g/L for 1 g of glucose */
+          let upGlycemy = (0.8 * (60 / this.physiologicalDataService.weight)) / 20;
+          this.sugarHeal = Math.round(this.bloodGlucoseService.convert(glucoseDelta, "mg/dL", "g/L") / upGlycemy);
+        } else {
+          this.sugarHeal = 0;
+        }
       }
     } else {
       this.insulinHeal = 0;
+      this.sugarHeal = 0;
     }
     this.calculTotal();
   }

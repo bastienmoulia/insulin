@@ -78,6 +78,15 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
+    <!-- TODO: display sugar needed -->
+    <ion-card *ngIf="sugarHeal && sugarHeal > 0" color="danger">
+      <ion-card-header>
+        {{ 'HOME.HYPOGLYCEMIA' | translate }}
+      </ion-card-header>
+      <ion-card-content>
+        {{ 'HOME.NEEDED_SUGAR' | translate }} {{ sugarHeal }} g
+      </ion-card-content>
+    </ion-card>
     <ion-card *ngIf="insulinTotal || insulinTotal === 0" color="primary">
       <ion-card-header *ngIf="insulinTotal !== 0">
         {{ 'HOME.INSULIN_TO_DO' | translate }} <b>{{ insulinTotal | insulin}}</b> {{ 'HOME.UNITS' | translate }}

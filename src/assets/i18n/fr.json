@@ -20,6 +20,8 @@
     "INSULIN_FAT": "Insuline pour repas gras",
     "REDUCTION_ACTIVITY": "Réductuion pour activitée",
     "UNITS": "unités",
+    "HYPOGLYCEMIA": "Hypoglycémie",
+    "NEEDED_SUGAR": "Besoin en sucres :",
     "POPOVER": {
       "CUSTOM": "Coefficient personnalisé",
       "USE": "Utiliser ce coefficient",
