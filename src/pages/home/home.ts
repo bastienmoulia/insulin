@@ -78,7 +78,7 @@ export class HomePage {
         if (glucoseInMgdl < this.bloodGlucoseService.glucoseTargetMin) {
           let glucoseDelta = this.bloodGlucoseService.glucoseTarget - glucoseInMgdl;
           /** augmentation of glycemy in g/L for 1 g of glucose */
-          let upGlycemy = (0.8 * (60 / this.physiologicalDataService.weight)) / 20;
+          let upGlycemy = (0.4 * (60 / this.physiologicalDataService.weight)) / 10;
           this.sugarHeal = Math.round(this.bloodGlucoseService.convert(glucoseDelta, "mg/dL", "g/L") / upGlycemy);
         } else {
           this.sugarHeal = 0;

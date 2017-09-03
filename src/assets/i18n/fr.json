@@ -61,7 +61,11 @@
     "COEFFICIENT_IS": "Votre coefficient de sensibilité à l'insuline est",
     "USE": "Utiliser ce coefficient",
     "DAILY_TOTAL_INSULIN": "Total d'insuline journalière",
-    "CARBOHYDRATE_DAILY": "Glucides quotidiens"
+    "CARBOHYDRATE_DAILY": "Glucides quotidiens",
+    "DESCRIPTION_1": "Le coefficient de sensibilité à l'insuline (aussi appelé K) est une valeur relativement difficile à évaluer.",
+    "DESCRIPTION_2": "Elle regroupe l'ensemble des paramètres pouvant modifier l'action de l'insuline comme la physiologie du patient par exemple.",
+    "DESCRIPTION_3": "Ce coefficient est donc fortement lié à la personne et ne peut-être déterminé de manière commune.",
+    "DESCRIPTION_4": "Il existe plusieurs manières pour l'estimer, mais ces approximations doivent être vérifiés à l'usage."
   },
   "ABOUT": {
     "TITLE": "À propos",

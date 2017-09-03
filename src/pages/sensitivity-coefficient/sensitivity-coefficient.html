@@ -7,7 +7,15 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      TODO: Description of the sensitivity coefficient
+      <p>
+        {{ 'SENSITIVITY.DESCRIPTION_1' | translate }}
+        <br>
+        {{ 'SENSITIVITY.DESCRIPTION_2' | translate }}
+        <br>
+        {{ 'SENSITIVITY.DESCRIPTION_3' | translate }}
+        <br>
+        {{ 'SENSITIVITY.DESCRIPTION_4' | translate }}
+      </p>
     </ion-card-content>
   </ion-card>
 
@@ -39,6 +47,11 @@
         <ion-label stacked>{{ 'SENSITIVITY.DAILY_TOTAL_INSULIN' | translate }}</ion-label>
         <ion-input type="number" [(ngModel)]="totalInsulin" (change)="calculK()" min="1" max="500"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label>HbA1c ≥ 8%</ion-label>
+        <ion-toggle [(ngModel)]="hba1c" (ionChange)="calculK()"></ion-toggle>
+      </ion-item>
+      <!-- TODO HBa1C >= 8 -->
     </ion-card-content>
   </ion-card>
 
