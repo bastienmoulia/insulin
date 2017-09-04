@@ -65,7 +65,10 @@
     "DESCRIPTION_1": "The insulin sensitivity coefficient (also known as K) is a difficult value to evaluate.",
     "DESCRIPTION_2": "It includes all the parameters that can modify the action of insulin like the physiology of the patient for example.",
     "DESCRIPTION_3": "This coefficient is therefore strongly linked to the person and can not be determined in a common way.",
-    "DESCRIPTION_4": "There are several ways to estimate it, but these approximations must be verified in use."
+    "DESCRIPTION_4": "There are several ways to estimate it, but these approximations must be verified in use.",
+    "SIMPLE_METHOD_DESCRIPTION": "The simple method is calculated from the total sum of insulin injected daily, long acting or rapid acting.",
+    "COMPLEX_METHOD_DESCRIPTION": "The complex method is calculated from the total sum of insulin injected daily as well as the sum of carbohydrates absorbed daily.",
+    "REVERSE_METHOD_DESCRIPTION": "This method is useful when you already know how much 1 unit of insulin reduces your blood sugar."
   },
   "ABOUT": {
     "TITLE": "About",

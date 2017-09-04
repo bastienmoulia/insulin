@@ -65,7 +65,10 @@
     "DESCRIPTION_1": "Le coefficient de sensibilité à l'insuline (aussi appelé K) est une valeur relativement difficile à évaluer.",
     "DESCRIPTION_2": "Elle regroupe l'ensemble des paramètres pouvant modifier l'action de l'insuline comme la physiologie du patient par exemple.",
     "DESCRIPTION_3": "Ce coefficient est donc fortement lié à la personne et ne peut-être déterminé de manière commune.",
-    "DESCRIPTION_4": "Il existe plusieurs manières pour l'estimer, mais ces approximations doivent être vérifiés à l'usage."
+    "DESCRIPTION_4": "Il existe plusieurs manières pour l'estimer, mais ces approximations doivent être vérifiés à l'usage.",
+    "SIMPLE_METHOD_DESCRIPTION": "La méthode simple est calulée à partir de la somme totale d'insuline injectée quotidiennement, lente ou rapide.",
+    "COMPLEX_METHOD_DESCRIPTION": "La méthode complexe est calulée à partir de la somme totale d'insuline injectée quotidiennement ainsi que la somme des glucides absorbés quotidiennement.",
+    "REVERSE_METHOD_DESCRIPTION": "Cette méthode est utile quand vous savez déjà de combien 1 unité d'insuline réduit votre glycémie."
   },
   "ABOUT": {
     "TITLE": "À propos",

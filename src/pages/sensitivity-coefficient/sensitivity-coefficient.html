@@ -38,7 +38,7 @@
       {{ 'SENSITIVITY.SIMPLE_METHOD' | translate }}
     </ion-card-header>
     <ion-card-content>
-      TODO: Simple method explanation
+      <p>{{ 'SENSITIVITY.SIMPLE_METHOD_DESCRIPTION' | translate }}</p>
       <ion-item>
         <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
         <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
@@ -60,7 +60,7 @@
       {{ 'SENSITIVITY.COMPLEX_METHOD' | translate }}
     </ion-card-header>
     <ion-card-content>
-      TODO: Complex method description
+      <p>{{ 'SENSITIVITY.COMPLEX_METHOD_DESCRIPTION' | translate }}</p>
       <ion-item>
         <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
         <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
@@ -81,7 +81,7 @@
       {{ 'SENSITIVITY.REVERSE_METHOD' | translate }}
     </ion-card-header>
     <ion-card-content>
-        TODO: Reverse method explanation
+      <p>{{ 'SENSITIVITY.REVERSE_METHOD_DESCRIPTION' | translate }}</p>
       <ion-item>
         <ion-label>{{ 'PARAM.WEIGHT' | translate }} (kg)</ion-label>
         <ion-input type="number" [(ngModel)]="weight" (change)="calculK()" min="1" max="200"></ion-input>
