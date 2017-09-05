@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 .ion-page > ion-content {
-  background-color: #7ac6ea;
+  background-color: color($colors, back, base);
 }
 .form-errors {
   color: color($colors, danger, base);

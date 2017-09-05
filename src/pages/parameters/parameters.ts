@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Storage } from '@ionic/storage';
 
 import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
 import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../app/shared/physiological-data.service';
@@ -8,6 +9,7 @@ import { SensitivityCoefficientPage } from '../sensitivity-coefficient/sensitivi
 import { ParametersService } from '../../app/shared/parameters.service';
 import { PopoverCoefficientPage } from './popover-coefficient';
 import { AboutPage } from "../about/about";
+import { InitPage } from "../init/init";
 
 @Component({
   selector: 'page-parameters',
@@ -22,7 +24,8 @@ export class ParametersPage {
     public physiologicalDataService: PhysiologicalDataService,
     public parametersService: ParametersService,
     public popoverCtrl: PopoverController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private storage: Storage
   ) {
     this.language = translate.currentLang;
     setTimeout(() => {
@@ -69,5 +72,10 @@ export class ParametersPage {
 
   goToAboutPage() {
     this.navCtrl.push(AboutPage);
+  }
+
+  goToInitPage() {
+    this.storage.set('introShown', false);
+    this.navCtrl.push(InitPage);
   }
 }

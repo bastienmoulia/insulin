@@ -17,15 +17,17 @@ export class PhysiologicalDataService {
   carbohydrateCoefficient: number;
   carbohydrateCoefficients: CarbohydrateCoefficientDetail[];
   hour: number;
+  loading: boolean;
 
   constructor(private storage: Storage) {
+    this.loading = true;
     this.storage.get('k').then((kFromStorage: number) => {
       console.log('Your k is', kFromStorage);
       if (kFromStorage) {
         this.k = kFromStorage;
         this.calculHypoPower();
       } else {
-        // TODO go to page init physiological data
+        this.loading = false;
       }
     });
     this.storage.get('weight').then((weightFromStorage: number) => {
@@ -34,7 +36,7 @@ export class PhysiologicalDataService {
         this.weight = weightFromStorage;
         this.calculHypoPower();
       } else {
-        // TODO go to page init physiological data
+        this.loading = false;
       }
     });
     this.storage.get('carbohydrateCoefficients').then((carbohydrateCoefficientsFromStorage: CarbohydrateCoefficientDetail[]) => {
@@ -58,6 +60,7 @@ export class PhysiologicalDataService {
     } else {
       this.hypoPower = null;
     }
+    this.loading = false;
   }
 
   saveK(newK?: number) {

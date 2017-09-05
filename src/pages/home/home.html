@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card color="danger" *ngIf="!physiologicalDataService.hypoPower">
+  <ion-card color="danger" *ngIf="!physiologicalDataService.loading && !physiologicalDataService.hypoPower">
     <ion-card-content>
       {{ 'HOME.NO_PARAM' | translate }}
       <button ion-button block color="light" icon-start (click)="goToParametersPage()">

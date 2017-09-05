@@ -20,6 +20,7 @@ import { ParametersService } from './shared/parameters.service';
 import { InsulinUnitPipe } from './shared/insulin-unit.pipe';
 import { BarchartComponent} from '../pages/parameters/barchart';
 import { AboutPage } from '../pages/about/about';
+import { InitPage } from '../pages/init/init';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +36,8 @@ export function createTranslateLoader(http: Http) {
     PopoverCoefficientPage,
     PopoverCustomCoefficientPage,
     BarchartComponent,
-    AboutPage
+    AboutPage,
+    InitPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ export function createTranslateLoader(http: Http) {
     SensitivityCoefficientPage,
     PopoverCoefficientPage,
     PopoverCustomCoefficientPage,
-    AboutPage
+    AboutPage,
+    InitPage
   ],
   providers: [
     StatusBar,
