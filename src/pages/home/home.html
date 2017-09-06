@@ -46,7 +46,7 @@
         </ion-item>
       </ion-card-content>
       <p text-center padding>
-        <span class="vertical-align">{{ 'HOME.CARBOHYDRATE_COEFFICIENT' | translate }} {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}IU/10g</span>
+        <span class="vertical-align">{{ 'HOME.CARBOHYDRATE_COEFFICIENT' | translate }} {{ customCarbohydrateCoefficient ? customCarbohydrateCoefficient : physiologicalDataService.carbohydrateCoefficient }}{{ 'IU' | translate }}/10g</span>
         <button ion-button *ngIf="customCarbohydrateCoefficient" small (click)="openPopover($event)">
           <ion-icon name="create"></ion-icon>
         </button>
