@@ -8,9 +8,9 @@ import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../a
 import { SensitivityCoefficientPage } from '../sensitivity-coefficient/sensitivity-coefficient';
 import { ParametersService } from '../../app/shared/parameters.service';
 import { PopoverCoefficientPage } from './popover-coefficient';
-import { AboutPage } from "../about/about";
-import { InitPage } from "../init/init";
-import { ChartItem } from "../barchart/barchart";
+import { AboutPage } from '../about/about';
+import { InitPage } from '../init/init';
+import { ChartItem } from '../barchart/barchart';
 
 @Component({
   selector: 'page-parameters',
@@ -78,7 +78,7 @@ export class ParametersPage {
 
   goToInitPage() {
     this.translate.get(['OK', 'CANCEL']).subscribe((messages) => {
-      console.log("trad", messages);
+      console.log('trad', messages);
       let confirm = this.alertCtrl.create({
         title: 'Supprimer les paramètres ? A TRAD',
         message: 'L\'initialisation de l\'application supprimera tout vos paramètres A TRAD',

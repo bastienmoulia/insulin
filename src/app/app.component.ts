@@ -52,7 +52,7 @@ export class MyApp {
 
   presentLoading() {
     this.loader = this.loadingCtrl.create({
-      content: ""
+      content: ''
     });
     this.loader.present();
   }

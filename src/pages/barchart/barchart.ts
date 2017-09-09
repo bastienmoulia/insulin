@@ -26,20 +26,20 @@ export class BarchartComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.createChart();
     if (this.data) {
-      console.log("chart data init", this.data);
+      console.log('chart data init', this.data);
       this.updateChart();
     }
   }
 
   ngOnChanges() {
     if (this.chart) {
-      console.log("chart data change", this.data);
+      console.log('chart data change', this.data);
       this.updateChart();
     }
   }
 
   createChart() {
-    console.log("createChart");
+    console.log('createChart');
     let element = this.chartContainer.nativeElement;
     this.width = element.offsetWidth - this.margin.left - this.margin.right;
     this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
@@ -67,7 +67,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     this.xAxis = svg.append('g')
       .attr('class', 'axis axis-x')
       .attr('transform', `translate(${this.margin.left}, ${this.margin.top + this.height})`)
-      .call(d3.axisBottom(this.xScale).tickFormat(d3.timeFormat("%_Hh")));
+      .call(d3.axisBottom(this.xScale).tickFormat(d3.timeFormat('%_Hh')));
     this.yAxis = svg.append('g')
       .attr('class', 'axis axis-y')
       .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`)
@@ -75,7 +75,7 @@ export class BarchartComponent implements OnInit, OnChanges {
   }
 
   updateChart() {
-    console.log("updateChart");
+    console.log('updateChart');
     // update scales & axis
     this.yScale.domain([0, d3.max(this.data, d => d[1])]);
     this.yAxis.transition().call(d3.axisLeft(this.yScale).ticks(5));

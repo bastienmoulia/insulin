@@ -1,5 +1,9 @@
 {
   "rules": {
+    "quotemark": [
+      true,
+      "single"
+    ],
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true

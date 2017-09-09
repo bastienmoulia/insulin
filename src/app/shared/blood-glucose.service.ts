@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-type BloodGlucoseUnit = "mg/dL" | "g/L" | "mmol/L";
+type BloodGlucoseUnit = 'mg/dL' | 'g/L' | 'mmol/L';
 
 @Injectable()
 export class BloodGlucoseService {

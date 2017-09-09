@@ -15,7 +15,7 @@ export class PopoverCustomCoefficientPage {
     const carbohydrateCoefficient = this.navParams.get('carbohydrateCoefficient');
     if (carbohydrateCoefficient) {
       this.coefficient = carbohydrateCoefficient;
-      console.log("init", this.coefficient);
+      console.log('init', this.coefficient);
     }
   }
 

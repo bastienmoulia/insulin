@@ -20,7 +20,7 @@ export class PopoverCoefficientPage implements OnInit {
       this.carbohydrateCoefficientInit = carbohydrateCoefficientParam;
       this.startHour = this.hourString(carbohydrateCoefficientParam.startHour);
       this.coefficient = carbohydrateCoefficientParam.coefficient.toString();
-      console.log("init", this.carbohydrateCoefficientInit, this.startHour, this.coefficient);
+      console.log('init', this.carbohydrateCoefficientInit, this.startHour, this.coefficient);
     }
   }
 
@@ -38,7 +38,7 @@ export class PopoverCoefficientPage implements OnInit {
   }
 
   testIfHourExist() {
-    console.log("testIfHourExist", this.startHour, this.coefficient, this.carbohydrateCoefficientInit);
+    console.log('testIfHourExist', this.startHour, this.coefficient, this.carbohydrateCoefficientInit);
     let previousCarbohydrateCoefficient = null
     this.physiologicalDataService.carbohydrateCoefficients.forEach((carbohydrateCoefficient) => {
       if (this.hourString(carbohydrateCoefficient.startHour) === this.startHour) {
@@ -47,7 +47,7 @@ export class PopoverCoefficientPage implements OnInit {
         }
       }
     });
-    console.log("previousCarbohydrateCoefficient", previousCarbohydrateCoefficient);
+    console.log('previousCarbohydrateCoefficient', previousCarbohydrateCoefficient);
     if (previousCarbohydrateCoefficient !== null) {
       this.translate.get(['PARAM.CONFIRM_UPDATE_MESSAGE', 'PARAM.CONFIRM_UPDATE', 'OK', 'CANCEL'], {coefficient: previousCarbohydrateCoefficient.coefficient}).subscribe((messages) => {
         let confirm = this.alertCtrl.create({
@@ -78,12 +78,12 @@ export class PopoverCoefficientPage implements OnInit {
       startHour: this.hourNumber(this.startHour),
       coefficient: parseFloat(this.coefficient)
     };
-    console.log("save", forceUpdateHour);
+    console.log('save', forceUpdateHour);
     if (forceUpdateHour >= 0) {
       this.physiologicalDataService.carbohydrateCoefficients = this.physiologicalDataService.carbohydrateCoefficients.filter(e => e !== this.carbohydrateCoefficientInit);
     }
     if (this.carbohydrateCoefficientInit || forceUpdateHour >= 0) {
-      console.log("update", this.carbohydrateCoefficientInit, newCoefficient);
+      console.log('update', this.carbohydrateCoefficientInit, newCoefficient);
       let carbohydrateCoefficientIndex = this.physiologicalDataService.carbohydrateCoefficients.findIndex((carbohydrateCoefficient) => {
         if (this.carbohydrateCoefficientInit && carbohydrateCoefficient.startHour === this.carbohydrateCoefficientInit.startHour) {
           return true;
@@ -94,16 +94,16 @@ export class PopoverCoefficientPage implements OnInit {
       });
       this.physiologicalDataService.carbohydrateCoefficients[carbohydrateCoefficientIndex] = newCoefficient;
     } else {
-      console.log("add", newCoefficient);
+      console.log('add', newCoefficient);
       this.physiologicalDataService.carbohydrateCoefficients.push(newCoefficient);
     }
-    console.log("carbohydrateCoefficients", this.physiologicalDataService.carbohydrateCoefficients);
+    console.log('carbohydrateCoefficients', this.physiologicalDataService.carbohydrateCoefficients);
     this.physiologicalDataService.saveCarbohydrateCoefficients();
     this.viewCtrl.dismiss();
   }
 
   delete() {
-    console.log("delete", this.carbohydrateCoefficientInit);
+    console.log('delete', this.carbohydrateCoefficientInit);
     this.physiologicalDataService.carbohydrateCoefficients = this.physiologicalDataService.carbohydrateCoefficients.filter(e => e !== this.carbohydrateCoefficientInit);
     this.physiologicalDataService.saveCarbohydrateCoefficients();
     this.viewCtrl.dismiss();

@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides, PopoverController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-import { HomePage } from "../home/home";
+import { HomePage } from '../home/home';
 import { PhysiologicalDataService, CarbohydrateCoefficientDetail } from '../../app/shared/physiological-data.service';
 import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
 import { SensitivityCoefficientPage } from '../sensitivity-coefficient/sensitivity-coefficient';
-import { ChartItem } from "../barchart/barchart";
+import { ChartItem } from '../barchart/barchart';
 import { PopoverCoefficientPage } from '../parameters/popover-coefficient';
 
 @Component({
@@ -27,7 +27,7 @@ export class InitPage {
   }
 
   ngAfterViewInit() {
-    console.log("Slides", this.slides)
+    console.log('Slides', this.slides)
     this.slides.lockSwipeToNext(true);
   }
 
