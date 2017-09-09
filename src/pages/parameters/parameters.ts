@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 
@@ -10,13 +10,14 @@ import { ParametersService } from '../../app/shared/parameters.service';
 import { PopoverCoefficientPage } from './popover-coefficient';
 import { AboutPage } from "../about/about";
 import { InitPage } from "../init/init";
+import { ChartItem } from "../barchart/barchart";
 
 @Component({
   selector: 'page-parameters',
   templateUrl: 'parameters.html'
 })
 export class ParametersPage {
-  chartData: any[];
+  chartData: ChartItem[];
   language: string;
   constructor(
     public navCtrl: NavController,
@@ -25,7 +26,8 @@ export class ParametersPage {
     public parametersService: ParametersService,
     public popoverCtrl: PopoverController,
     public translate: TranslateService,
-    private storage: Storage
+    private storage: Storage,
+    public alertCtrl: AlertController
   ) {
     this.language = translate.currentLang;
     setTimeout(() => {
@@ -75,7 +77,25 @@ export class ParametersPage {
   }
 
   goToInitPage() {
-    this.storage.set('introShown', false);
-    this.navCtrl.push(InitPage);
+    this.translate.get(['OK', 'CANCEL']).subscribe((messages) => {
+      console.log("trad", messages);
+      let confirm = this.alertCtrl.create({
+        title: 'Supprimer les paramètres ? A TRAD',
+        message: 'L\'initialisation de l\'application supprimera tout vos paramètres A TRAD',
+        buttons: [
+          {
+            text: messages['CANCEL']
+          },
+          {
+            text: messages['OK'],
+            handler: () => {
+              this.storage.set('introShown', false);
+              this.navCtrl.push(InitPage);
+            }
+          }
+        ]
+      });
+      confirm.present();
+    });
   }
 }

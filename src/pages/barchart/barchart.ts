@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, ViewChild, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 
+export type ChartItem = [Date, number];
+
 @Component({
   selector: 'coefficient-barchart',
   templateUrl: './barchart.html',
@@ -8,7 +10,7 @@ import * as d3 from 'd3';
 })
 export class BarchartComponent implements OnInit, OnChanges {
   @ViewChild('chart') private chartContainer: ElementRef;
-  @Input() private data: Array<any>;
+  @Input() private data: ChartItem[];
   private margin: any = { top: 10, bottom: 20, left: 30, right: 10};
   private chart: any;
   private width: number;
@@ -24,12 +26,14 @@ export class BarchartComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.createChart();
     if (this.data) {
+      console.log("chart data init", this.data);
       this.updateChart();
     }
   }
 
   ngOnChanges() {
     if (this.chart) {
+      console.log("chart data change", this.data);
       this.updateChart();
     }
   }

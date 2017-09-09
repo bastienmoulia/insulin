@@ -15,7 +15,7 @@
         <ion-input type="number" [(ngModel)]="physiologicalDataService.weight" (change)="physiologicalDataService.saveWeight()" required min="1" max="200"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>{{ 'PARAM.SENSITIVITY' | translate }}</ion-label>
+        <ion-label floating class="multiline">{{ 'PARAM.SENSITIVITY' | translate }}</ion-label>
         <ion-input type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01" min="0.01" max="10"></ion-input>
       </ion-item>
       <button ion-button outline block small (click)="goToSensitivityCoefficientPage()">{{ 'PARAM.SENSITIVITY_HELP' | translate }}</button>

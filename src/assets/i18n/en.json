@@ -82,8 +82,20 @@
     "PRESENTATION_TEXT_5": "If you have any remarks do not hesitate to contact me.",
     "PRESENTATION_TEXT_6": "The application is open source, so you can help me improve, either by reporting bugs, adding translations or by offering new features."
   },
+  "INIT": {
+    "WELCOME": "Welcome",
+    "WELCOME_TEXT": "To begin calculating your insulin needs please fill in the information on the following pages.",
+    "LETS_GO": "Let's go !",
+    "WEIGHT_TEXT": "Your weight will make it possible to calculate the corrections of blood glucose as well as different coefficients.",
+    "WEIGHT_PLACEHOLDER": "Weight in kg",
+    "NEXT": "Next",
+    "BLOOD_GLUCOSE_UNITS_TEXT": "Choose the unit for your blood glucose levels:",
+    "FINISH": "Finish"
+  },
   "BACK": "Back",
   "AND": "and",
   "IU": "IU",
+  "OK": "OK",
+  "CANCEL": "Cancel",
   "TITLE": "Insulin"
 }

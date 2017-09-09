@@ -1,36 +1,77 @@
 <ion-slides pager #slides>
   <ion-slide>
-    <h2>Presentation</h2>
+    <h2>{{ 'INIT.WELCOME' | translate }}</h2>
+    <p padding>
+      {{ 'INIT.WELCOME_TEXT' | translate }}
+    </p>
     <div padding>
-      <button ion-button color="light" block (click)="next()">Suivant</button>
+      <button ion-button color="light" block (click)="next()">{{ 'INIT.LETS_GO' | translate }}</button>
     </div>
   </ion-slide>
 
   <ion-slide>
-    <h2>Weight</h2>
+    <h2>{{ 'PARAM.WEIGHT' | translate }}</h2>
+    <p padding>
+      {{ 'INIT.WEIGHT_TEXT' | translate }}
+    </p>
     <div padding>
-      <button ion-button color="light" block (click)="next()">Suivant</button>
+      <ion-item>
+        <ion-input #weightInput="ngModel" type="number" placeholder="{{ 'INIT.WEIGHT_PLACEHOLDER' | translate }}" [(ngModel)]="physiologicalDataService.weight" (change)="physiologicalDataService.saveWeight()" required min="1" max="200"></ion-input>
+      </ion-item>
+      <button ion-button color="light" block (click)="next()" [disabled]="weightInput.invalid">{{ 'INIT.NEXT' | translate }}</button>
     </div>
   </ion-slide>
 
   <ion-slide>
-    <h2>Blood glucose units</h2>
+    <h2>{{ 'PARAM.BLOOD_GLUCOSE_UNITS' | translate }}</h2>
+    <p padding>
+      {{ 'INIT.BLOOD_GLUCOSE_UNITS_TEXT' | translate }}
+    </p>
     <div padding>
-      <button ion-button color="light" block (click)="next()">Suivant</button>
+      <ion-list radio-group [(ngModel)]="bloodGlucoseService.unit" (ionChange)="bloodGlucoseService.saveUnit()">
+        <ion-item *ngFor="let unit of bloodGlucoseService.units">
+          <ion-label>{{ unit.value }}</ion-label>
+          <ion-radio value="{{ unit.value }}"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <button ion-button color="light" block (click)="next()">{{ 'INIT.NEXT' | translate }}</button>
     </div>
   </ion-slide>
 
   <ion-slide>
-    <h2>Insulin sensitivity coef</h2>
+    <h2>{{ 'PARAM.SENSITIVITY' | translate }}</h2>
     <div padding>
-      <button ion-button color="light" block (click)="next()">Suivant</button>
+      <ion-item>
+        <ion-input #kInput="ngModel" type="number" [(ngModel)]="physiologicalDataService.k" (change)="physiologicalDataService.saveK()" required step="0.01" min="0.01" max="10"></ion-input>
+      </ion-item>
+      <button ion-button outline color="light" block small (click)="goToSensitivityCoefficientPage()">{{ 'PARAM.SENSITIVITY_HELP' | translate }}</button>
+      <button ion-button color="light" block (click)="next()" [disabled]="kInput.invalid">{{ 'INIT.NEXT' | translate }}</button>
     </div>
   </ion-slide>
 
   <ion-slide>
-    <h2>Carbohydrate coef</h2>
+    <h2>{{ 'PARAM.CARBOHYDRATES' | translate }}</h2>
     <div padding>
-      <button ion-button block (click)="goToHome()">Terminer</button>
+      <coefficient-barchart *ngIf="chartData" [data]="chartData"></coefficient-barchart>
+      <ion-grid>
+        <ion-row *ngIf="physiologicalDataService.carbohydrateCoefficients && physiologicalDataService.carbohydrateCoefficients.length > 0">
+          <ion-col col-5>{{ 'PARAM.START_HOUR' | translate }}</ion-col>
+          <ion-col col-5>{{ 'PARAM.COEFFICIENT' | translate }}</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let carbohydrateCoefficient of physiologicalDataService.carbohydrateCoefficients">
+          <ion-col col-5>{{ carbohydrateCoefficient.startHour }}h</ion-col>
+          <ion-col col-5>{{ carbohydrateCoefficient.coefficient }}</ion-col>
+          <ion-col col-2>
+            <button ion-button block color="light" clear small (click)="openPopover($event, carbohydrateCoefficient)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <button ion-button outline block color="light" small (click)="openPopover($event)">
+          {{ 'PARAM.ADD_CARBOHYDRATE' | translate }}
+        </button>
+      </ion-grid>
+      <button ion-button block (click)="goToHome()">{{ 'INIT.FINISH' | translate }}</button>
     </div>
   </ion-slide>
 </ion-slides>

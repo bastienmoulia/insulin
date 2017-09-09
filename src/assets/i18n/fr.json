@@ -44,7 +44,7 @@
     "SAVE": "Sauver",
     "DELETE": "Supprimer",
     "CONFIRM_UPDATE": "Confirmer le remplacement",
-    "CONFIRM_UPDATE_MESSAGE": "Il y a déjà un coefficient pou cette heure ({{coefficient}}). Voulez-vous le remplacer ?",
+    "CONFIRM_UPDATE_MESSAGE": "Il y a déjà un coefficient pour cette heure ({{coefficient}}). Voulez-vous le remplacer ?",
     "CANCEL": "Annuler",
     "OK": "OK"
   },
@@ -82,8 +82,20 @@
     "PRESENTATION_TEXT_5": "Si vous avez des remarques n'hésitez pas à me contacter.",
     "PRESENTATION_TEXT_6": "L'application est open source, vous pouvez donc m'aidez à l'améliorer, que ce soit en signalant des bugs, en ajoutant des traductions ou en proposant de nouvelles fonctionnalités."
   },
+  "INIT": {
+    "WELCOME": "Bienvenue",
+    "WELCOME_TEXT": "Pour commencer à calculer vos besoins en insuline merci de renseigner les informations dans les pages suivantes.",
+    "LETS_GO": "Ç'est parti !",
+    "WEIGHT_TEXT": "Votre poids va permettre de calculer les corrections de glycémie ainsi que différents coefficients.",
+    "WEIGHT_PLACEHOLDER": "Poids en kg",
+    "NEXT": "Suivant",
+    "BLOOD_GLUCOSE_UNITS_TEXT": "Choisissez l'unité pour vos glycémies :",
+    "FINISH": "Terminer"
+  },
   "BACK": "Retour",
   "AND": "et",
   "IU": "UI",
-  "TITLE": "Insulin"
+  "OK": "OK",
+  "CANCEL": "Annuler",
+  "TITLE": "Insulin Bolus"
 }

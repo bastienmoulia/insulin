@@ -49,28 +49,24 @@ export class PopoverCoefficientPage implements OnInit {
     });
     console.log("previousCarbohydrateCoefficient", previousCarbohydrateCoefficient);
     if (previousCarbohydrateCoefficient !== null) {
-      this.translate.get('PARAM.CONFIRM_UPDATE_MESSAGE', {coefficient: previousCarbohydrateCoefficient.coefficient}).subscribe((message: string) => {
-        let alert = this.alertCtrl.create({
-          title: 'Confirm update',
-          message: message,
+      this.translate.get(['PARAM.CONFIRM_UPDATE_MESSAGE', 'PARAM.CONFIRM_UPDATE', 'OK', 'CANCEL'], {coefficient: previousCarbohydrateCoefficient.coefficient}).subscribe((messages) => {
+        let confirm = this.alertCtrl.create({
+          title: messages['PARAM.CONFIRM_UPDATE'],
+          message: messages['PARAM.CONFIRM_UPDATE_MESSAGE'],
           buttons: [
             {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                console.log('Cancel clicked');
-              }
+              text: messages['CANCEL'],
+              role: 'cancel'
             },
             {
-              text: 'OK',
+              text: messages['OK'],
               handler: () => {
-                console.log('OK clicked');
                 this.save(previousCarbohydrateCoefficient.startHour);
               }
             }
           ]
         });
-        alert.present();
+        confirm.present();
       });
     } else {
       this.save();

@@ -12,7 +12,7 @@
   <button ion-button color="secondary" (click)="testIfHourExist()" [disabled]="!startHour || !coefficient">
     {{ 'PARAM.SAVE' | translate }}
   </button>
-  <button ion-button color="danger" (click)="delete()" *ngIf="physiologicalDataService.carbohydrateCoefficients && physiologicalDataService.carbohydrateCoefficients.length > 1">
+  <button ion-button color="danger" (click)="delete()" *ngIf="carbohydrateCoefficientInit && physiologicalDataService.carbohydrateCoefficients && physiologicalDataService.carbohydrateCoefficients.length > 1">
     {{ 'PARAM.DELETE' | translate }}
   </button>
 </div>
