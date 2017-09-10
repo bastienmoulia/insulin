@@ -48,7 +48,7 @@ Dans les formules suivantes et dans le code de l'application l'unité choisie es
 - Soit `K` le coefficient de sensibilité à l'insuline
 
 > Si le diabète est mal équilibré (HbA1c >= 8) on rajoute 10% à `totalInsuline` :\
-`totalInsuline = totalInsuline * 1.1`
+![Calcul](https://latex.codecogs.com/png.latex?%5Cbg_white%20totalInsuline%20%3D%201.1%20%5Ctimes%20totalInsuline)<!--`totalInsuline = totalInsuline * 1.1`-->
 
 <!--K = totalInsuline / (0.7 * poids)-->
 ![Calcul](https://latex.codecogs.com/png.latex?%5Cbg_white%20K%20%3D%20%5Cfrac%7BtotalInsuline%7D%7B0.7%5Ctimes%20poids%7D)
