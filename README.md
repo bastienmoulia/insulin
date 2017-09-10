@@ -1,26 +1,82 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Insulin
 
-## How to use this template
+[![Release](https://img.shields.io/github/release/bastienmoulia/insulin.svg)](https://github.com/bastienmoulia/insulin/releases) ![Dependencies](https://img.shields.io/david/bastienmoulia/insulin.svg)
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Presentation
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+Développeur web et diabètique, j'ai développé cette application pour mieux maitriser mon diabète.
+J'espère qu'elle pourra également vous servir.
 
-### With the Ionic CLI:
+Les données de l'application sont à caractère informatif. Si elles sont trop différentes de vos données habituelles, n'en prenez pas compte. Il est possible que des paramètres soient mal renseignés.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+## Comment aider à améliorer l'application
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+Pour aider à améliorer cette applications vous pouvez [proposer des améliorations ou signaler des bugs](https://github.com/bastienmoulia/insulin/issues).
 
-Then, to run it, cd into `myBlank` and run:
+### Pour les traducteurs
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+Si vous souhaitez améliorer des traductions ou en faire de nouvelles ce serais avec plaisir que je les intégrerais à l'application.
 
-Substitute ios for android if not on a Mac.
+Pour cela vous pouvez récupérer les fichiers de traductions JSON existants dans le dossier [src/assets/i18n](https://github.com/bastienmoulia/insulin/tree/master/src/assets/i18n). En ouvrant le fichier vous trouverez à gauche en majuscule les clés de traduction qu'il ne faut pas modifier et à droite la traduction correspondante. Une fois modifié vous pouvez m'envoyer le nouveau fichier dans une [issue](https://github.com/bastienmoulia/insulin/issues) ou par [mail](mailto:bmoulia@gmail.com).
 
+### Pour les développeurs
+
+L'application est basée sur [Ionic](https://ionicframework.com/).
+
+*TODO*
+
+## Formules utilisés
+
+### Unités des glycémies
+
+`100 mg/dL = 1g/L = 5.56 mmol/L`
+
+Dans les formules suivantes et dans le code de l'application l'unité choisie est `mg/dL`.
+
+### Glycémie cible et seuils
+
+`glycemieCible = 100 mg/dL`\
+`glycemieMin = 70 mg/dL`\
+`glycemieMax = 120 mg/dL`
+
+### Calcul du coefficient de sensibilité à l'insuline (K)
+
+#### Méthode simple
+
+- Soit `totalInsuline` la somme des unités d'insulines injectés dans la journée (lente et rapide)
+- Soit `poids` le poids en kg
+- Soit `K` le coefficient de sensibilité à l'insuline
+
+> Si le diabète est mal équilibré (HbA1c >= 8) on rajoute 10% à `totalInsuline` :\
+`totalInsuline = totalInsuline * 1.1`
+
+<!--K = totalInsuline / (0.7 * poids)-->
+![Calcul](https://latex.codecogs.com/png.latex?%5Cbg_white%20K%20%3D%20%5Cfrac%7BtotalInsuline%7D%7B0.7%5Ctimes%20poids%7D)
+
+#### Méthode complexe
+
+*TODO*
+
+#### Méthode inverse
+
+*TODO*
+
+### Coefficients glucidiques
+
+*TODO*
+
+### Calcul des besoins en insuline
+
+*TODO*
+
+#### Besoin pour soigner
+
+*TODO*
+
+#### Besoin pour manger
+
+*TODO*
+
+#### Besoin total
+
+*TODO*
