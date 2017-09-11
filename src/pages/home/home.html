@@ -61,7 +61,7 @@
         <ng-container *ngIf="more">{{ 'HOME.LESS_DETAILS' | translate }}</ng-container>
       </button>
     </div>
-    <ion-card *ngIf="more">
+    <ion-card [@cardState]="more">
       <ion-card-header>
         {{ 'HOME.PHYSICAL_ACTIVITY_PLANNED' | translate }}
         <ion-badge item-end>{{ 'HOME.ACTIVITY_' + physicalActivities[physicalActivity].label | uppercase | translate  }}</ion-badge>

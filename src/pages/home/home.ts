@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { ParametersPage } from '../parameters/parameters';
 import { BloodGlucoseService } from '../../app/shared/blood-glucose.service';
@@ -14,7 +15,19 @@ interface PhysicalActivityStep {
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  animations: [
+    trigger('cardState', [
+      state('0', style({
+        height: 0
+      })),
+      state('1', style({
+        height: '*'
+      })),
+      transition('0 => 1', animate('225ms ease')),
+      transition('1 => 0', animate('195ms ease'))
+    ])
+  ]
 })
 export class HomePage {
   glucose: number;
