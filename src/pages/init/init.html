@@ -71,7 +71,20 @@
           {{ 'PARAM.ADD_CARBOHYDRATE' | translate }}
         </button>
       </ion-grid>
-      <button ion-button block (click)="goToHome()">{{ 'INIT.FINISH' | translate }}</button>
+      <button ion-button color="light" block (click)="next()">{{ 'INIT.NEXT' | translate }}</button>
+    </div>
+  </ion-slide>
+
+  <ion-slide>
+    <h2>{{ 'INIT.DISCLAIMER' | translate }}</h2>
+    <p padding>
+      {{ 'ABOUT.PRESENTATION_TEXT_3' | translate }}
+    </p>
+    <p padding>
+      {{ 'ABOUT.PRESENTATION_TEXT_4' | translate }}
+    </p>
+    <div padding>
+      <button ion-button block (click)="goToHome()">{{ 'INIT.I_UNDERSTAND' | translate }}</button>
     </div>
   </ion-slide>
 </ion-slides>

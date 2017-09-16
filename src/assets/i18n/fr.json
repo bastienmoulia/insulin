@@ -45,8 +45,9 @@
     "DELETE": "Supprimer",
     "CONFIRM_UPDATE": "Confirmer le remplacement",
     "CONFIRM_UPDATE_MESSAGE": "Il y a déjà un coefficient pour cette heure ({{coefficient}}). Voulez-vous le remplacer ?",
-    "CANCEL": "Annuler",
-    "OK": "OK"
+    "DELETE_PARAMETERS": "Supprimer les paramètres ?",
+    "DELETE_PARAMETERS_MESSAGE": "L'initialisation de l'application supprimera tout vos paramètres.",
+    "RESET": "Réinitialiser"
   },
   "SENSITIVITY": {
     "TITLE": "Calcul du coef.",
@@ -77,8 +78,8 @@
     "WEBSITE": "Site web",
     "PRESENTATION_TEXT_1": "Développeur web et diabètique, j'ai développé cette application pour mieux maitriser mon diabète.",
     "PRESENTATION_TEXT_2": "J'espère qu'elle pourra également vous servir.",
-    "PRESENTATION_TEXT_3": "Les données de l'application sont à caractère informatif.",
-    "PRESENTATION_TEXT_4": "Si elles sont trop différentes de vos données habituelles, n'en prenez pas compte. Il est possible que des paramètres soient mal renseignés.",
+    "PRESENTATION_TEXT_3": "Cette application ne remplace pas l'avis médical de votre diabètologue.",
+    "PRESENTATION_TEXT_4": "Si les résultats sont trop différentes de vos données habituelles, n'en prenez pas compte. Il est possible que des paramètres soient mal renseignés.",
     "PRESENTATION_TEXT_5": "Si vous avez des remarques n'hésitez pas à me contacter.",
     "PRESENTATION_TEXT_6": "L'application est open source, vous pouvez donc m'aidez à l'améliorer, que ce soit en signalant des bugs, en ajoutant des traductions ou en proposant de nouvelles fonctionnalités."
   },
@@ -90,7 +91,8 @@
     "WEIGHT_PLACEHOLDER": "Poids en kg",
     "NEXT": "Suivant",
     "BLOOD_GLUCOSE_UNITS_TEXT": "Choisissez l'unité pour vos glycémies :",
-    "FINISH": "Terminer"
+    "DISCLAIMER": "Avertissements",
+    "I_UNDERSTAND": "Je comprends"
   },
   "BACK": "Retour",
   "AND": "et",

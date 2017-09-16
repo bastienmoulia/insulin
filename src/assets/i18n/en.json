@@ -45,8 +45,9 @@
     "DELETE": "Delete",
     "CONFIRM_UPDATE": "Confirm update",
     "CONFIRM_UPDATE_MESSAGE": "There is already a coefficient for this hour ({{coefficient}}). Do you want to update it?",
-    "CANCEL": "Cancel",
-    "OK": "OK"
+    "DELETE_PARAMETERS": "Remove the settings?",
+    "DELETE_PARAMETERS_MESSAGE": "Initializing the application will remove all your settings.",
+    "RESET": "Reset"
   },
   "SENSITIVITY": {
     "TITLE": "Coefficient calcul",
@@ -77,8 +78,8 @@
     "WEBSITE": "Website",
     "PRESENTATION_TEXT_1": "Web developer and diabetic, I developed this application to better control my diabetes.",
     "PRESENTATION_TEXT_2": "I hope it will also serve you.",
-    "PRESENTATION_TEXT_3": "The data of the application are informative.",
-    "PRESENTATION_TEXT_4": "If they are too different from your usual data, do not take it into account. Parameters may be incorrect.",
+    "PRESENTATION_TEXT_3": "This application does not replace the medical advice of your diabetologist.",
+    "PRESENTATION_TEXT_4": "If the results are too different from your usual data, do not take it into account. Parameters may be incorrect.",
     "PRESENTATION_TEXT_5": "If you have any remarks do not hesitate to contact me.",
     "PRESENTATION_TEXT_6": "The application is open source, so you can help me improve, either by reporting bugs, adding translations or by offering new features."
   },
@@ -90,7 +91,8 @@
     "WEIGHT_PLACEHOLDER": "Weight in kg",
     "NEXT": "Next",
     "BLOOD_GLUCOSE_UNITS_TEXT": "Choose the unit for your blood glucose levels:",
-    "FINISH": "Finish"
+    "DISCLAIMER": "Disclaimer",
+    "I_UNDERSTAND": "I understand"
   },
   "BACK": "Back",
   "AND": "and",

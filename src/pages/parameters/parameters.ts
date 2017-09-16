@@ -77,11 +77,11 @@ export class ParametersPage {
   }
 
   goToInitPage() {
-    this.translate.get(['OK', 'CANCEL']).subscribe((messages) => {
+    this.translate.get(['OK', 'CANCEL', 'PARAM.DELETE_PARAMETERS', 'PARAM.DELETE_PARAMETERS_MESSAGE']).subscribe((messages) => {
       console.log('trad', messages);
       let confirm = this.alertCtrl.create({
-        title: 'Supprimer les paramètres ? A TRAD',
-        message: 'L\'initialisation de l\'application supprimera tout vos paramètres A TRAD',
+        title: messages['PARAM.DELETE_PARAMETERS'],
+        message: messages['PARAM.DELETE_PARAMETERS_MESSAGE'],
         buttons: [
           {
             text: messages['CANCEL']

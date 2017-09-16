@@ -70,13 +70,6 @@ export class PhysiologicalDataService {
     console.log('Save k: ', this.k);
     this.storage.set('k', this.k);
     this.calculHypoPower();
-    if (!this.carbohydrateCoefficients || this.carbohydrateCoefficients.length === 0) {
-      this.carbohydrateCoefficients = [{
-        startHour: 12,
-        coefficient: Math.round(this.k * 1.1 * 100) / 100
-      }];
-      this.saveCarbohydrateCoefficients();
-    }
   }
 
   saveWeight() {
@@ -99,20 +92,29 @@ export class PhysiologicalDataService {
   }
 
   updateCarbohydrateCoefficient() {
-    if (this.carbohydrateCoefficients && this.carbohydrateCoefficients.length > 0) {
-      const hour: number = new Date().getHours();
-      let newCarbohydrateCoefficient = null;
-      this.carbohydrateCoefficients.forEach((carbohydrateCoefficient) => {
-        if (carbohydrateCoefficient.startHour <= hour) {
-          newCarbohydrateCoefficient = carbohydrateCoefficient.coefficient;
-        }
-      });
-      if (newCarbohydrateCoefficient === null) {
-        newCarbohydrateCoefficient = this.carbohydrateCoefficients[this.carbohydrateCoefficients.length - 1].coefficient;
-      }
-      this.carbohydrateCoefficient = newCarbohydrateCoefficient;
-    } else {
-      this.carbohydrateCoefficient = this.k * 1.1;
+    if (!this.carbohydrateCoefficients || this.carbohydrateCoefficients.length === 0) {
+      this.carbohydrateCoefficients = [{
+        startHour: 2,
+        coefficient: 2
+      }, {
+        startHour: 11,
+        coefficient: 1
+      }, {
+        startHour: 18,
+        coefficient: 1.5
+      }];
+      this.saveCarbohydrateCoefficients();
     }
+    const hour: number = new Date().getHours();
+    let newCarbohydrateCoefficient = null;
+    this.carbohydrateCoefficients.forEach((carbohydrateCoefficient) => {
+      if (carbohydrateCoefficient.startHour <= hour) {
+        newCarbohydrateCoefficient = carbohydrateCoefficient.coefficient;
+      }
+    });
+    if (newCarbohydrateCoefficient === null) {
+      newCarbohydrateCoefficient = this.carbohydrateCoefficients[this.carbohydrateCoefficients.length - 1].coefficient;
+    }
+    this.carbohydrateCoefficient = newCarbohydrateCoefficient;
   }
 }
