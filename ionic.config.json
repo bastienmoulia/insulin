@@ -1,6 +1,6 @@
 {
   "name": "insulin",
-  "app_id": "",
+  "app_id": "a0d948ba",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
